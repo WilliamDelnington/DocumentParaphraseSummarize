@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../_torch_"
+		},
+		{
+			"path": "../NLP"
+		}
+	],
+	"settings": {}
+}
