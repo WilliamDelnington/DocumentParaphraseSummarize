@@ -54,20 +54,36 @@ def analyze_t5_model(model_name="t5-small", input_text=None, task="translation",
 
     return analysis
 
-if __name__ == "__main__":
-    with open("./testDocument.txt", "r", encoding="utf-8") as file:
+def read_and_analyze(file, model="t5-base", task="translation"):
+    with open(file, "r", encoding="utf-8") as file:
         text = file.read()
 
     detailed_analysis = analyze_t5_model(
-        model_name="t5-base",
-        input_text=f"Summarize: {text}",
-        task="summarization"
+        model_name=model,
+        input_text=text,
+        task=task
     )
-
-    print(detailed_analysis)
 
     evaluator = ChatbotEvaluator()
 
-    metrics = evaluator.calculate_metrics(text, detailed_analysis["generation"]['generated_text'])
+    metrics = evaluator.calculate_metrics(text, detailed_analysis["generation"]['generated_text'], task_type=task)
 
-    print(metrics)
+    return detailed_analysis, metrics
+
+# if __name__ == "__main__":
+#     with open("./testDocument.txt", "r", encoding="utf-8") as file:
+#         text = file.read()
+
+#     detailed_analysis = analyze_t5_model(
+#         model_name="t5-base",
+#         input_text=f"Summarize: {text}",
+#         task="summarization"
+#     )
+
+#     print(detailed_analysis)
+
+#     evaluator = ChatbotEvaluator()
+
+#     metrics = evaluator.calculate_metrics(text, detailed_analysis["generation"]['generated_text'], task_type="summarization")
+
+#     print(metrics)

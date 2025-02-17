@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Document File</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .chat-container { width: 400px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; }
+        .messages { height: 300px; overflow-y: scroll; margin-bottom: 10px; border: 1px solid #ddd; padding: 10px; }
+        .message { padding: 5px; }
+        input[type="text"] { width: 80%; padding: 5px; }
+        button { padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h1>Upload A Document</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="file">Choose a file to upload:</label>
+        <input type="file" name="file" required>
+        <br><br>
+        <input type="submit" value="Upload">
+    </form>
+    <div class="chat-container">
+        <div class="messages" id="messages"></div>
+        <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        var socket = io();
+
+        // Listen for incoming messages and display them
+        socket.on('message', function(msg) {
+            var messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.textContent = msg;
+            document.getElementById('messages').appendChild(messageElement);
+            document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
+        });
+
+        function sendMessage() {
+            var message = document.getElementById('messageInput').value;
+            if (message) {
+                socket.send(message);  // Send message to server
+                document.getElementById('messageInput').value = '';  // Clear input
+            }
+        }
+    </script>
+</body>
+</html>
