@@ -1,0 +1,66 @@
+[
+    {
+        "intent": {
+            "tags": "greeting",
+            "patterns": ["Hi", "Hello", "Hey", "How are you?"]
+        },
+        "responses": ["Hello there!", "Hello!", "Good to see you!", "Hi there, how can I help?"]
+    },
+    {
+        "intent": {
+            "tags": "paraphrase",
+            "patterns": [
+                "Can you paraphrase this document?",
+                "Paraphrase this document:",
+                "Paraphrase this document"
+            ]
+        },
+        "responses": [
+            "Sure, here's the paraphrased version: "
+        ]
+    },
+    {
+        "intent": {
+            "tags": "summarize",
+            "patterns": [
+                "Can you summarize this document?",
+                "Summarize this document:",
+                "Summarize this document"
+            ]
+        },
+        "responses": [
+            "Sure, here's the summarization: "
+        ]
+    },
+    {
+        "intent": {
+            "tags": "questioning",
+            "patterns": [
+                "Who are you?"
+            ]
+        },
+        "responses": [
+            "I am a bot that supports summarizing and paraphrasing documents"
+        ]
+    },
+    {
+        "intent": {
+            "tags": "questioning",
+            "patterns": [
+                "Who creates you?", "Who made you?", "Who makes you?", "Who created you?"
+            ]
+        },
+        "responses": [
+            "I'm designed for academic purposes. I was created by multiple people."
+        ]
+    },
+    {
+        "intent": {
+            "tags": "error",
+            "patterns": []
+        },
+        "responses": [
+            "Sorry. I don't understand. I'm not supported to answer this question."
+        ]
+    }
+]

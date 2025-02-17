@@ -9,43 +9,72 @@
         .chat-container { width: 400px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; }
         .messages { height: 300px; overflow-y: scroll; margin-bottom: 10px; border: 1px solid #ddd; padding: 10px; }
         .message { padding: 5px; }
-        input[type="text"] { width: 80%; padding: 5px; }
+        input[type="text"] { width: 90%; padding: 5px; }
         button { padding: 5px 10px; }
+        label[for="fileInput"] {border: 1px solid #000; padding: 5px 10px;}
     </style>
 </head>
 <body>
     <h1>Upload A Document</h1>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <label for="file">Choose a file to upload:</label>
-        <input type="file" name="file" required>
-        <br><br>
-        <input type="submit" value="Upload">
-    </form>
     <div class="chat-container">
         <div class="messages" id="messages"></div>
         <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off">
         <button onclick="sendMessage()">Send</button>
+        <input type="file" id="fileInput" style="display: none;">
+        <label for="fileInput">Select File</label>
+        <div id="uploadMessage"></div>
     </div>
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
     <script>
         var socket = io();
+        var uploadMessage = document.getElementById("uploadMessage")
+        var messageInput = document.getElementById("messageInput")
+        var messages = document.getElementById("messages")
 
         // Listen for incoming messages and display them
-        socket.on('message', function(msg) {
-            var messageElement = document.createElement('div');
-            messageElement.classList.add('message');
-            messageElement.textContent = msg;
-            document.getElementById('messages').appendChild(messageElement);
-            document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
-        });
+        // socket.on('message', function(msg) {
+        //     var messageElement = document.createElement('div');
+        //     messageElement.classList.add('message');
+        //     messageElement.textContent = msg;
+        //     messages.appendChild(messageElement);
+        //     messages.scrollTop = messages.scrollHeight;
+        // });
 
         function sendMessage() {
-            var message = document.getElementById('messageInput').value;
-            if (message) {
-                socket.send(message);  // Send message to server
-                document.getElementById('messageInput').value = '';  // Clear input
-            }
+            let message = messageInput.value;
+            if (message.trim() === '') return
+            
+            // socket.send(message)
+
+            fetch("/chat", { 
+                method: 'POST',
+                body: new URLSearchParams({"message": message }),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            }).then(response => response.json())
+            .then(data => {
+                messages.innerHTML += "<p><strong>You:</strong> " + message + "</p>";
+                messages.innerHTML += "<p><strong>Bot:</strong> " + data.response + "</p>";
+                document.getElementById("userMessage").value = "";
+            })
         }
+
+        document.getElementById('fileInput').addEventListener("change", (e) => {
+            uploadMessage.value = ""
+            const file = e.target.files[0]
+            if (!file) return;
+
+            let formData = new FormData();
+            formData.append("file", file);
+
+            fetch("/upload", { method: "POST", body: formData})
+            .then(response => {
+                console.log(response.status)
+                return response.json()})
+            .then(data => {
+                uploadMessage.textContent = data.response
+                document.getElementById("fileInput").value = ""
+            })
+        })
     </script>
 </body>
 </html>
