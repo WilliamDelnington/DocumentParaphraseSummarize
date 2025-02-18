@@ -1,4 +1,6 @@
-import pypdf
+import readfile
 
-file = pypdf.PdfReader("./OOP_2013.pdf")
-print(file.pages[0].extract_text())
+reader = readfile.ReadFile("./testDocument.txt")
+text = reader.read()
+
+print(text)

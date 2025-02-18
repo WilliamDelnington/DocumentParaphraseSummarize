@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for, jsonify, session
 from flask_socketio import SocketIO, send
 from werkzeug.utils import secure_filename
 from DPS_2 import read_and_analyze
+from readfile import ReadFile
 import json
 import os
 
@@ -9,6 +10,7 @@ with open("responses.json") as f:
     dataset = json.load(f)
 
 app = Flask(__name__)
+app.secret_key = os.getenv("SESSION_SECRET_KEY")
 socketio = SocketIO(app)
 
 UPLOAD_FOLDER = "uploads"
@@ -51,15 +53,39 @@ def upload():
     if file.name == "":
         return jsonify({"response": "Name was not specified"}), 400
     
-    if file:
+    if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
+        filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
         try:
-            file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+            file.save(filepath)
+            session["file"] = filepath
             return jsonify({"response": f"File was uploaded: {filename}"}), 200
         except Exception as e:
+            if os.path.exists(filepath):
+                os.remove(filepath)
             return jsonify({"response": f"Uploading failed: {e}"}), 500
     
     return jsonify({"response": "Invalid file type."}), 400
+
+@app.route('/reset', methods=['DELETE'])
+def reset():
+    if not session.get("file", None):
+        return jsonify({"response": "No file occurred"}), 400
+    
+    try:
+        os.remove(session["file"])
+        session.pop("file")
+        return jsonify({"response": "File was successfully removed"}), 204
+    except Exception as e:
+        return jsonify({"response": "Error removing file: {e}"}), 400
+    
+def analyze(file_path, model="t5-base", task="summarize"):
+    reader = ReadFile(file_path)
+    text = reader.read()
+
+    analysis, metrics = read_and_analyze(text, model, task)
+
+    return analysis, metrics
 
 if __name__ == "__main__":
     app.run(debug=True)

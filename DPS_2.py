@@ -54,13 +54,10 @@ def analyze_t5_model(model_name="t5-small", input_text=None, task="translation",
 
     return analysis
 
-def read_and_analyze(file, model="t5-base", task="translation"):
-    with open(file, "r", encoding="utf-8") as file:
-        text = file.read()
-
+def read_and_analyze(text, model="t5-base", task="summarize"):
     detailed_analysis = analyze_t5_model(
         model_name=model,
-        input_text=text,
+        input_text=f"{task}: {text}",
         task=task
     )
 

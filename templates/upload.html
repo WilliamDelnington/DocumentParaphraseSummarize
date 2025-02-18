@@ -18,10 +18,18 @@
     <h1>Upload A Document</h1>
     <div class="chat-container">
         <div class="messages" id="messages"></div>
-        <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off">
-        <button onclick="sendMessage()">Send</button>
-        <input type="file" id="fileInput" style="display: none;">
-        <label for="fileInput">Select File</label>
+        <form id="messageForm">
+            <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off">
+            <input type="file" id="fileInput" style="display: none;">
+            <label for="fileInput">Select File</label>
+            <select name="model" id="model">
+                <option value="t5-small">T5-Small</option>
+                <option value="t5-base">T5-Base</option>
+                <option value="t5-large">T5-Large</option>
+            </select>
+            <button onclick="sendMessage()">Send</button>
+            <button onclick="reset()">Reset</button>
+        </form>
         <div id="uploadMessage"></div>
     </div>
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
@@ -59,7 +67,7 @@
         }
 
         document.getElementById('fileInput').addEventListener("change", (e) => {
-            uploadMessage.value = ""
+            uploadMessage.textContent = ""
             const file = e.target.files[0]
             if (!file) return;
 
@@ -75,6 +83,15 @@
                 document.getElementById("fileInput").value = ""
             })
         })
+
+        function reset() {
+            uploadMessage.textContent = ""
+            fetch("/reset", {method: 'DELETE'})
+            .then(response => response.json())
+            .then(data => {
+                uploadMessage.textContent = data.response
+            })
+        }
     </script>
 </body>
 </html>
