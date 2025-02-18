@@ -2,9 +2,12 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify, s
 from flask_socketio import SocketIO, send
 from werkzeug.utils import secure_filename
 from DPS_2 import read_and_analyze
-from readfile import ReadFile
 import json
 import os
+import fitz
+import docx
+import io
+import re
 
 with open("responses.json") as f:
     dataset = json.load(f)
@@ -17,7 +20,11 @@ UPLOAD_FOLDER = "uploads"
 ALLOWED_EXTENSIONS = {"pdf", "docx", "doc", "txt"}
 
 NEGATIVE_WORDS = ["no", "don't", "without", "doesn't", "not", "isn't", "aren't", "wasn't", "weren't"]
-TASKS = ["summarize", "paraphrase", "greetings", "questioning"]
+TASKS = {
+    "summarize": ["summarize", "summarizing", "summarized"], 
+    "paraphrase": ["paraphrase", "paraphrasing", "paraphrased"],
+    "greetings": "", 
+    "questioning": ""}
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
@@ -38,10 +45,45 @@ def index():
 def chat():
     user_message = request.form.get('message', '').strip()
 
-    default_response = "Sorry. I don't understand. I'm not supported to answer this question."
+    default_no_response = "Sorry. I don't understand. I'm not supported to answer this question."
+    default_yes_response = "Sure. Here's the answer you need: "
+    other_file_response = "Sorry. I don't support this file."
     containing_negatives = [word for word in NEGATIVE_WORDS if word in user_message]
-    
-    return jsonify({"response": default_response}), 201
+
+    if request.files["file"]:
+        file = request.files["file"]
+        filename = file.filename.lower()
+
+        if filename.endswith(".txt"):
+            text = file.read().decode("utf-8")
+
+        elif filename.endswith(".docx"):
+            doc = docx.Document(io.BytesIO(file.read()))
+            text = "\n".join([p.text for p in doc.paragraphs])
+        
+        elif filename.endswith(".pdf"):
+            pdf = fitz.open(stream=file.stream, filetype="pdf")
+            text = "\n".join([p.get_text() for p in pdf])
+
+        else:
+            return jsonify({"response": other_file_response}), 201
+        
+        summarize_patterns = r"\b(" + "|".join(TASKS["summarize"]) + r")\b"
+        paraphrase_patterns = r"\b(" + "|".join(TASKS["paraphrase"]) + r")\b"
+        if re.search(summarize_patterns, user_message):
+            task = "summarize"
+
+        elif re.search(paraphrase_patterns, user_message):
+            task = "paraphrase"
+        
+        if task:
+            analysis, metrics = read_and_analyze(text, request.form.get("model", "t5-small"), task)
+        else:
+            analysis = text
+        
+        return jsonify({"response": f"{default_yes_response}\n{analysis}"}), 201
+    else:
+        return jsonify({"response": default_no_response}), 201
 
 @app.route("/upload", methods=["POST"])
 def upload():
@@ -79,13 +121,13 @@ def reset():
     except Exception as e:
         return jsonify({"response": "Error removing file: {e}"}), 400
     
-def analyze(file_path, model="t5-base", task="summarize"):
-    reader = ReadFile(file_path)
-    text = reader.read()
+# def analyze(file_path, model="t5-base", task="summarize"):
+#     reader = ReadFile(file_path)
+#     text = reader.read()
 
-    analysis, metrics = read_and_analyze(text, model, task)
+#     analysis, metrics = read_and_analyze(text, model, task)
 
-    return analysis, metrics
+#     return analysis, metrics
 
 if __name__ == "__main__":
     app.run(debug=True)
