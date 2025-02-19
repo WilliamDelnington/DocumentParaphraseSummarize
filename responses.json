@@ -2,7 +2,11 @@
     {
         "intent": {
             "tags": "greeting",
-            "patterns": ["Hi", "Hello", "Hey", "How are you?"]
+            "patterns": [
+                "(?i)hi[.?!]*$",
+                "(?i)hello[.?!]*$",
+                "(?i)how\\sare\\syou[.?!]*$"
+            ]
         },
         "responses": ["Hello there!", "Hello!", "Good to see you!", "Hi there, how can I help?"]
     },
@@ -10,9 +14,8 @@
         "intent": {
             "tags": "paraphrase",
             "patterns": [
-                "Can you paraphrase this document?",
-                "Paraphrase this document:",
-                "Paraphrase this document"
+                "paraphrase", "paraphrased", "paraphrasing",
+                "Paraphrase", "Paraphrased", "Paraphrasing"
             ]
         },
         "responses": [
@@ -23,9 +26,8 @@
         "intent": {
             "tags": "summarize",
             "patterns": [
-                "Can you summarize this document?",
-                "Summarize this document:",
-                "Summarize this document"
+                "summarize", "summarizing", "summarized",
+                "Summarize", "Summarizing", "Summarized"
             ]
         },
         "responses": [
@@ -36,11 +38,11 @@
         "intent": {
             "tags": "questioning",
             "patterns": [
-                "Who are you?"
+                "Who are you?", "who are you", "who are you?", "Who are you"
             ]
         },
         "responses": [
-            "I am a bot that supports summarizing and paraphrasing documents"
+            "I am a bot that supports summarizing and paraphrasing documents."
         ]
     },
     {
@@ -48,6 +50,7 @@
             "tags": "questioning",
             "patterns": [
                 "Who creates you?", "Who made you?", "Who makes you?", "Who created you?"
+                
             ]
         },
         "responses": [
@@ -56,11 +59,20 @@
     },
     {
         "intent": {
-            "tags": "error",
+            "tags": "default",
             "patterns": []
         },
         "responses": [
             "Sorry. I don't understand. I'm not supported to answer this question."
+        ]
+    },
+    {
+        "intent": {
+            "tags": "read",
+            "patterns": ["read", "reading"]
+        },
+        "responses": [
+            "Sure, Here's the document: "
         ]
     }
 ]

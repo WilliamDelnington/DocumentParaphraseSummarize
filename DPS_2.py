@@ -54,11 +54,12 @@ def analyze_t5_model(model_name="t5-small", input_text=None, task="translation",
 
     return analysis
 
-def read_and_analyze(text, model="t5-base", task="summarize"):
+def read_and_analyze(text, model="t5-base", task="summarize", max_length=200):
     detailed_analysis = analyze_t5_model(
         model_name=model,
         input_text=f"{task}: {text}",
-        task=task
+        task=task,
+        max_length=max_length
     )
 
     evaluator = ChatbotEvaluator()

@@ -26,6 +26,8 @@
                 <option value="t5-base">T5-Base</option>
                 <option value="t5-large">T5-Large</option>
             </select>
+            <label for="limit">Paragraph limit:</label>
+            <input type="number" name="limit" min="100" max="500" step="50" placeholder="" value="100">
             <button type="submit">Send</button>
             <button type="reset">Reset</button>
         </form>
@@ -39,17 +41,9 @@
         var messageForm = document.getElementById("messageForm")
         var fileInput = document.getElementById("fileInput")
 
-        // Listen for incoming messages and display them
-        // socket.on('message', function(msg) {
-        //     var messageElement = document.createElement('div');
-        //     messageElement.classList.add('message');
-        //     messageElement.textContent = msg;
-        //     messages.appendChild(messageElement);
-        //     messages.scrollTop = messages.scrollHeight;
-        // });
-
         messageForm.addEventListener("submit", (e) => {
             e.preventDefault()
+            messages.innerHTML += "<p><strong>You:</strong> " + formData.get("message") + "</p>";
             uploadMessage.textContent = ""
             
             // socket.send(message)
@@ -61,7 +55,6 @@
                 body: formData,
             }).then(response => response.json())
             .then(data => {
-                messages.innerHTML += "<p><strong>You:</strong> " + formData.get("message") + "</p>";
                 messages.innerHTML += "<p><strong>Bot:</strong> " + data.response + "</p>";
             })
         })

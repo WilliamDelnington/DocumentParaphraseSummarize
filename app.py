@@ -8,6 +8,7 @@ import fitz
 import docx
 import io
 import re
+import random
 
 with open("responses.json") as f:
     dataset = json.load(f)
@@ -19,12 +20,7 @@ socketio = SocketIO(app)
 UPLOAD_FOLDER = "uploads"
 ALLOWED_EXTENSIONS = {"pdf", "docx", "doc", "txt"}
 
-NEGATIVE_WORDS = ["no", "don't", "without", "doesn't", "not", "isn't", "aren't", "wasn't", "weren't"]
-TASKS = {
-    "summarize": ["summarize", "summarizing", "summarized"], 
-    "paraphrase": ["paraphrase", "paraphrasing", "paraphrased"],
-    "greetings": "", 
-    "questioning": ""}
+WORD_LIMIT_PATTERN = r"\d+\swords"
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
@@ -36,54 +32,77 @@ def allowed_file(filename):
 def index():
     return render_template("upload.html")
 
-# @socketio.on('message')
-# def handle_message(message):
-#     print('Received message:', message)
-#     send(message, broadcast=True)  # Broadcast the message to all clients
-
 @app.route('/chat', methods=['POST'])
 def chat():
     user_message = request.form.get('message', '').strip()
 
-    default_no_response = "Sorry. I don't understand. I'm not supported to answer this question."
-    default_yes_response = "Sure. Here's the answer you need: "
+    default_yes_response = {}
     other_file_response = "Sorry. I don't support this file."
-    containing_negatives = [word for word in NEGATIVE_WORDS if word in user_message]
+    task = None
 
-    if request.files["file"]:
-        file = request.files["file"]
-        filename = file.filename.lower()
+    # If the re.search function returns None or error, then there aren't any word limitations
+    try:
+        word_limit = int(re.search(WORD_LIMIT_PATTERN, user_message).group().split(" ")[0])
+    except:
+        word_limit = None
 
-        if filename.endswith(".txt"):
-            text = file.read().decode("utf-8")
+    for data in dataset:
+        if data["intent"]["tags"] == "summarize":
+            # Create a regex string with metacharacters to match summarization purpose
+            summarize_patterns = r"\b(" + "|".join(data["intent"]["patterns"]) + r")\b"
+            default_yes_response["summaize"] = random.choice(data["responses"])
+        elif data["intent"]["tags"] == "paraphrase":
+            # Create a regex string with metacharacters to match paraphrasing purpose
+            paraphrase_patterns = r"\b(" + "|".join(data["intent"]["patterns"]) + r")\b"
+            default_yes_response["paraphrase"] = random.choice(data["responses"])
+        elif data["intent"]["tags"] == "read":
+            read_patterns = r"\b(" + "|".join(data["intent"]["patterns"]) + r")\b"
+            default_yes_response["read"] = random.choice(data["responses"])
+        elif data["intent"]["tags"] == "default":
+            default_no_response = random.choice(data["responses"])
 
-        elif filename.endswith(".docx"):
-            doc = docx.Document(io.BytesIO(file.read()))
-            text = "\n".join([p.text for p in doc.paragraphs])
-        
-        elif filename.endswith(".pdf"):
-            pdf = fitz.open(stream=file.stream, filetype="pdf")
-            text = "\n".join([p.get_text() for p in pdf])
+    # Defining tasks for the model
+    if re.search(summarize_patterns, user_message):
+        task = "summarize"
 
+    elif re.search(paraphrase_patterns, user_message):
+        task = "paraphrase"
+
+    elif re.search(read_patterns, user_message):
+        task = "read"
+
+    if task: 
+        if request.files["file"]:
+            file = request.files["file"]
+            filename = file.filename.lower()
+
+            if filename.endswith(".txt"):
+                text = file.read().decode("utf-8")
+
+            elif filename.endswith(".docx"):
+                doc = docx.Document(io.BytesIO(file.read()))
+                text = "\n".join([p.text for p in doc.paragraphs])
+            
+            elif filename.endswith(".pdf"):
+                pdf = fitz.open(stream=file.stream, filetype="pdf")
+                text = "\n".join([p.get_text() for p in pdf])
+
+            else:
+                return jsonify({"response": other_file_response}), 201
+            
+            if task == "summarize" and task == "paraphrase":
+                analysis, metrics = read_and_analyze(text, request.form.get("model", "t5-small"), task)
+            else:
+                analysis = text
+            
+            return jsonify({"response": f"{default_yes_response}\n{analysis}"}), 201
         else:
-            return jsonify({"response": other_file_response}), 201
-        
-        summarize_patterns = r"\b(" + "|".join(TASKS["summarize"]) + r")\b"
-        paraphrase_patterns = r"\b(" + "|".join(TASKS["paraphrase"]) + r")\b"
-        if re.search(summarize_patterns, user_message):
-            task = "summarize"
-
-        elif re.search(paraphrase_patterns, user_message):
-            task = "paraphrase"
-        
-        if task:
-            analysis, metrics = read_and_analyze(text, request.form.get("model", "t5-small"), task)
-        else:
-            analysis = text
-        
-        return jsonify({"response": f"{default_yes_response}\n{analysis}"}), 201
+            return jsonify({"response": default_no_response}), 201
     else:
-        return jsonify({"response": default_no_response}), 201
+        for data in dataset:
+            if user_message in data["intent"]["patterns"]:
+                return jsonify({"response": random.choice(data["responses"])})
+        return jsonify({"response": f"{default_no_response}"}), 201
 
 @app.route("/upload", methods=["POST"])
 def upload():
@@ -120,14 +139,6 @@ def reset():
         return jsonify({"response": "File was successfully removed"}), 204
     except Exception as e:
         return jsonify({"response": "Error removing file: {e}"}), 400
-    
-# def analyze(file_path, model="t5-base", task="summarize"):
-#     reader = ReadFile(file_path)
-#     text = reader.read()
-
-#     analysis, metrics = read_and_analyze(text, model, task)
-
-#     return analysis, metrics
 
 if __name__ == "__main__":
     app.run(debug=True)
