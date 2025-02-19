@@ -31,7 +31,6 @@
             <button type="submit">Send</button>
             <button type="reset">Reset</button>
         </form>
-        <div id="uploadMessage"></div>
     </div>
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
     <script>
@@ -59,15 +58,6 @@
                 messages.innerHTML += "<p><strong>Bot:</strong> " + data.response + "</p>";
             }).catch(error => {
                 messages.innerHTML += "<p style='color: red;'><strong>Bot:</strong>An error has occured, please try again.</p>"
-            })
-        })
-
-        messageForm.addEventListener("reset", (e) => {
-            uploadMessage.textContent = ""
-            fetch("/reset", {method: 'DELETE'})
-            .then(response => response.json())
-            .then(data => {
-                uploadMessage.textContent = data.response
             })
         })
     </script>
