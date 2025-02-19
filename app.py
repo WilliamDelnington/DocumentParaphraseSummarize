@@ -32,9 +32,12 @@ def allowed_file(filename):
 def index():
     return render_template("upload.html")
 
+# Route for creating a bot message object
 @app.route('/chat', methods=['POST'])
 def chat():
+    # Get user's message.
     user_message = request.form.get('message', '').strip()
+    # Get the selected model.
     model = request.form.get("model", "t5-small")
 
     default_yes_response = {}

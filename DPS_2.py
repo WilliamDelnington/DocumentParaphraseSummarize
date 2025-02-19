@@ -33,6 +33,7 @@ def analyze_t5_model(model_name="t5-small", input_text=None, task="translation",
     if input_text:
         inputs = tokenizer(input_text, return_tensors="pt", max_length=max_length, truncation=True)
 
+        # Put tokens in the analysis.
         analysis['tokenization'] = {
             'input_length': len(inputs['input_ids'][0]),
             'token_count': inputs['input_ids'].shape[1],
@@ -43,6 +44,7 @@ def analyze_t5_model(model_name="t5-small", input_text=None, task="translation",
             outputs = model.generate(inputs["input_ids"], max_length=200)
             generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
+        # Get the generated text.
         analysis['generation'] = {
             'generated_text': generated_text,
             'generation_length': len(tokenizer.encode(generated_text))
@@ -55,6 +57,7 @@ def analyze_t5_model(model_name="t5-small", input_text=None, task="translation",
     return analysis
 
 def read_and_analyze(text, model="t5-base", task="summarize", max_length=200):
+    print(text)
     detailed_analysis = analyze_t5_model(
         model_name=model,
         input_text=f"{task}: {text}",
@@ -67,21 +70,3 @@ def read_and_analyze(text, model="t5-base", task="summarize", max_length=200):
     metrics = evaluator.calculate_metrics(text, detailed_analysis["generation"]['generated_text'], task_type=task)
 
     return detailed_analysis, metrics
-
-# if __name__ == "__main__":
-#     with open("./testDocument.txt", "r", encoding="utf-8") as file:
-#         text = file.read()
-
-#     detailed_analysis = analyze_t5_model(
-#         model_name="t5-base",
-#         input_text=f"Summarize: {text}",
-#         task="summarization"
-#     )
-
-#     print(detailed_analysis)
-
-#     evaluator = ChatbotEvaluator()
-
-#     metrics = evaluator.calculate_metrics(text, detailed_analysis["generation"]['generated_text'], task_type="summarization")
-
-#     print(metrics)
