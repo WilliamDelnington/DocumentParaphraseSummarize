@@ -35,28 +35,33 @@ def index():
 @app.route('/chat', methods=['POST'])
 def chat():
     user_message = request.form.get('message', '').strip()
+    model = request.form.get("model", "t5-small")
 
     default_yes_response = {}
     other_file_response = "Sorry. I don't support this file."
     task = None
 
+    # Search in the message whether the user request the task limitations.
     # If the re.search function returns None or error, then there aren't any word limitations
     try:
         word_limit = int(re.search(WORD_LIMIT_PATTERN, user_message).group().split(" ")[0])
+        print(word_limit)
     except:
-        word_limit = None
+        print("No word limit found")
+        word_limit = 250
 
     for data in dataset:
         if data["intent"]["tags"] == "summarize":
             # Create a regex string with metacharacters to match summarization purpose
-            summarize_patterns = r"\b(" + "|".join(data["intent"]["patterns"]) + r")\b"
-            default_yes_response["summaize"] = random.choice(data["responses"])
+            summarize_patterns = data["intent"]["patterns"][0]
+            default_yes_response["summarize"] = random.choice(data["responses"]) + f"in {word_limit} words"
         elif data["intent"]["tags"] == "paraphrase":
             # Create a regex string with metacharacters to match paraphrasing purpose
-            paraphrase_patterns = r"\b(" + "|".join(data["intent"]["patterns"]) + r")\b"
-            default_yes_response["paraphrase"] = random.choice(data["responses"])
+            paraphrase_patterns = data["intent"]["patterns"][0]
+            default_yes_response["paraphrase"] = random.choice(data["responses"]) + f"in {word_limit} words"
         elif data["intent"]["tags"] == "read":
-            read_patterns = r"\b(" + "|".join(data["intent"]["patterns"]) + r")\b"
+            # Create a regex string with metacharacters for reading purpose.
+            read_patterns = data["intent"]["patterns"][0]
             default_yes_response["read"] = random.choice(data["responses"])
         elif data["intent"]["tags"] == "default":
             default_no_response = random.choice(data["responses"])
@@ -90,17 +95,22 @@ def chat():
             else:
                 return jsonify({"response": other_file_response}), 201
             
-            if task == "summarize" and task == "paraphrase":
-                analysis, metrics = read_and_analyze(text, request.form.get("model", "t5-small"), task)
+            if task == "summarize" or task == "paraphrase":
+                analysis, metrics = read_and_analyze(text, model, task, word_limit)
+                print(metrics)
+                answer_text = analysis["generation"]["generated_text"]
             else:
-                analysis = text
+                answer_text = text
             
-            return jsonify({"response": f"{default_yes_response}\n{analysis}"}), 201
+            return jsonify({"response": f"{default_yes_response[task]}\n{answer_text}"}), 201
         else:
             return jsonify({"response": default_no_response}), 201
     else:
         for data in dataset:
-            if user_message in data["intent"]["patterns"]:
+            if any(
+                re.search(data["intent"]["patterns"][i], user_message)
+                for i in range(len(data["intent"]["patterns"]))
+                ):
                 return jsonify({"response": random.choice(data["responses"])})
         return jsonify({"response": f"{default_no_response}"}), 201
 

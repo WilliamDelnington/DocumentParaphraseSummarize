@@ -26,8 +26,6 @@
                 <option value="t5-base">T5-Base</option>
                 <option value="t5-large">T5-Large</option>
             </select>
-            <label for="limit">Paragraph limit:</label>
-            <input type="number" name="limit" min="100" max="500" step="50" placeholder="" value="100">
             <button type="submit">Send</button>
             <button type="reset">Reset</button>
         </form>
@@ -43,12 +41,13 @@
 
         messageForm.addEventListener("submit", (e) => {
             e.preventDefault()
-            messages.innerHTML += "<p><strong>You:</strong> " + formData.get("message") + "</p>";
-            uploadMessage.textContent = ""
             
             // socket.send(message)
             const formData = new FormData(event.target)
             if (formData.get("message") == null) return
+
+            messages.innerHTML += "<p><strong>You:</strong> " + formData.get("message") + "</p>";
+            uploadMessage.textContent = ""
 
             fetch("/chat", { 
                 method: 'POST',
@@ -56,6 +55,8 @@
             }).then(response => response.json())
             .then(data => {
                 messages.innerHTML += "<p><strong>Bot:</strong> " + data.response + "</p>";
+            }).catch(error => {
+                messages.innerHTML += "<p style='color: red;'><strong>Bot:</strong>An error has occured, please try again.</p>"
             })
         })
 

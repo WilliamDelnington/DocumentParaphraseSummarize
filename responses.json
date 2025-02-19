@@ -14,31 +14,29 @@
         "intent": {
             "tags": "paraphrase",
             "patterns": [
-                "paraphrase", "paraphrased", "paraphrasing",
-                "Paraphrase", "Paraphrased", "Paraphrasing"
+                "(?i)\\b(paraphrase|paraphrasing|paraphrased)\\b"
             ]
         },
         "responses": [
-            "Sure, here's the paraphrased version: "
+            "Sure, here's the paraphrased version "
         ]
     },
     {
         "intent": {
             "tags": "summarize",
             "patterns": [
-                "summarize", "summarizing", "summarized",
-                "Summarize", "Summarizing", "Summarized"
+                "(?i)\\b(summarize|summarized|summarizing|summary)\\b"
             ]
         },
         "responses": [
-            "Sure, here's the summarization: "
+            "Sure, here's the summarization "
         ]
     },
     {
         "intent": {
             "tags": "questioning",
             "patterns": [
-                "Who are you?", "who are you", "who are you?", "Who are you"
+                "(?i)who\\sare\\syou[.?!]*$"
             ]
         },
         "responses": [
@@ -47,10 +45,9 @@
     },
     {
         "intent": {
-            "tags": "questioning",
+            "tags": "creator_questioning",
             "patterns": [
-                "Who creates you?", "Who made you?", "Who makes you?", "Who created you?"
-                
+                "(?i)who\\s(made|make|create|created)\\syou?"
             ]
         },
         "responses": [
@@ -69,7 +66,9 @@
     {
         "intent": {
             "tags": "read",
-            "patterns": ["read", "reading"]
+            "patterns": [
+                "(?i)\\b(read|reading)\\b"
+            ]
         },
         "responses": [
             "Sure, Here's the document: "
