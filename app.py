@@ -117,41 +117,5 @@ def chat():
                 return jsonify({"response": random.choice(data["responses"])})
         return jsonify({"response": f"{default_no_response}"}), 201
 
-@app.route("/upload", methods=["POST"])
-def upload():
-    if 'file' not in request.files:
-        return jsonify({"response": "No file uploaded"}), 400
-    
-    file = request.files["file"]
-
-    if file.name == "":
-        return jsonify({"response": "Name was not specified"}), 400
-    
-    if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-        try:
-            file.save(filepath)
-            session["file"] = filepath
-            return jsonify({"response": f"File was uploaded: {filename}"}), 200
-        except Exception as e:
-            if os.path.exists(filepath):
-                os.remove(filepath)
-            return jsonify({"response": f"Uploading failed: {e}"}), 500
-    
-    return jsonify({"response": "Invalid file type."}), 400
-
-@app.route('/reset', methods=['DELETE'])
-def reset():
-    if not session.get("file", None):
-        return jsonify({"response": "No file occurred"}), 400
-    
-    try:
-        os.remove(session["file"])
-        session.pop("file")
-        return jsonify({"response": "File was successfully removed"}), 204
-    except Exception as e:
-        return jsonify({"response": "Error removing file: {e}"}), 400
-
 if __name__ == "__main__":
     app.run(debug=True)
