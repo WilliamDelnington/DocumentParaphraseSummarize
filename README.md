@@ -118,11 +118,10 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## Contributors
 
-- [Nguyen Vu Gia Huy - BA12-088](https://github.com/WilliamDelnington)
-- [Trinh Quang Minh - BA12-127]
-- [Lai Phu Huy - BA12-084]
-- [Nguyen Nu Lan Anh - BA12-016]
-- Open to contributions! Feel free to submit a pull request.
+- [Nguyen Vu Gia Huy - BA12-088](https://github.com/WilliamDelnington) (Group Leader)
+- Trinh Quang Minh - BA12-127
+- Lai Phu Huy - BA12-084
+- Nguyen Nu Lan Anh - BA12-016
 
 ## Acknowledgments
 
