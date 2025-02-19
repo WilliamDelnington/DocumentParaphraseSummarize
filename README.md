@@ -2,11 +2,11 @@
 
 ## Overview
 
-This project is a chatbot designed to paraphrase and summarize documents. Built using state-of-the-art natural language processing (NLP) techniques, it provides an efficient way to process large volumes of text and extract concise summaries or generate paraphrased versions of the input text.
+This project is a chatbot designed to paraphrase and summarize documents efficiently. It utilizes the T5 Transformer model and supports fundamental conversation handling for better user interaction.
 
 ## Features
 
-- **Document Summarization**: Extracts key points from long documents.
+- **Document Summarization**: Extracts key points and produces concise summaries for documents.
 - **Text Paraphrasing**: Rephrases input text while retaining its original meaning.
 - **Interactive Chatbot**: Engages users through a conversational interface.
 - **Customizable NLP Models**: Supports T5-based transformers or other fine-tuned models for text generation.
@@ -65,7 +65,6 @@ This project is a chatbot designed to paraphrase and summarize documents. Built 
 ├── app.py                   # Main application file
 ├── requirements.txt         # Dependencies
 ├── models/                  # Pre-trained models and fine-tuned weights
-├── static/                  # Static files (CSS, JS, etc.)
 ├── templates/               # HTML templates for the web interface
 ├── README.md                # Project documentation
 └── testDocument.txt         # Example input document
@@ -84,6 +83,7 @@ This project is a chatbot designed to paraphrase and summarize documents. Built 
    from transformers import T5Tokenizer, T5ForConditionalGeneration, Trainer, TrainingArguments
 
    # Load pre-trained T5 model and tokenizer
+   model_name = "t5-small" # Use any related t5 models.
    model = T5ForConditionalGeneration.from_pretrained("t5-small")
    tokenizer = T5Tokenizer.from_pretrained("t5-small")
 
