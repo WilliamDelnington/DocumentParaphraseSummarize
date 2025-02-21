@@ -39,6 +39,8 @@ def chat():
     user_message = request.form.get('message', '').strip()
     # Get the selected model.
     model = request.form.get("model", "t5-small")
+    print(user_message)
+    print(model)
 
     default_yes_response = {}
     other_file_response = "Sorry. I don't support this file."
@@ -71,10 +73,16 @@ def chat():
 
     # Defining tasks for the model
     if re.search(summarize_patterns, user_message):
-        task = "summarize"
+        if model.startswith("t5"):
+            task = "summarize"
+        else:
+            task = "Summarize this text: "
 
     elif re.search(paraphrase_patterns, user_message):
-        task = "paraphrase"
+        if model.startswith("t5"):
+            task = "paraphrase"
+        else:
+            task = "Paraphrase this text: "
 
     elif re.search(read_patterns, user_message):
         task = "read"
@@ -102,6 +110,16 @@ def chat():
                 analysis, metrics = read_and_analyze(text, model, task, word_limit)
                 print(metrics)
                 answer_text = analysis["generation"]["generated_text"]
+            elif task == "Summarize this text: ":
+                analysis, metrics = read_and_analyze(text, model, task, word_limit)
+                answer_text = analysis["generation"]["generated_text"]
+                print(metrics)
+                return jsonify({"response": f"{default_yes_response['summarize']}\n{answer_text}"})
+            elif task == "Paraphrase this text: ":
+                analysis, metrics = read_and_analyze(text, model, task, word_limit)
+                answer_text = analysis["generation"]["generated_text"]
+                print(metrics)
+                return jsonify({"response": f"{default_yes_response['paraphrase']}\n{answer_text}"})
             else:
                 answer_text = text
             
