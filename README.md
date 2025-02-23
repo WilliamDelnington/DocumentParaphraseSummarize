@@ -49,12 +49,12 @@ This project is a chatbot designed to paraphrase and summarize documents efficie
 
 2. **Input a Document:** Upload a text file or paste the content directly into the chatbot interface.
 
-3. **Select a Task:**
+3. **Specifying a Task:**
 
    - `Summarize`: Returns a concise summary of the document.
    - `Paraphrase`: Outputs a rephrased version of the input text.
 
-4. **View Results:** Results are displayed in real-time and can be exported as a text file.
+4. **View Results:** Results are displayed in real-time.
 
 ## File Structure
 
@@ -62,7 +62,7 @@ This project is a chatbot designed to paraphrase and summarize documents efficie
 .
 ├── app.py                   # Main application file
 ├── requirements.txt         # Dependencies
-├── models/                  # Pre-trained models and fine-tuned weights
+├── static/                  # Static files when using with the templates
 ├── templates/               # HTML templates for the web interface
 ├── README.md                # Project documentation
 └── testDocument.txt         # Example input document
