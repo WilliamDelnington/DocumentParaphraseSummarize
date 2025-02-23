@@ -1,0 +1,1382 @@
+[
+    {
+        "filename": "",
+        "analysis": {
+            "model_name": "t5-small",
+            "task": "paraphrase",
+            "architecture": {
+                "total_parameters": 60506624,
+                "trainable_parameters": 60506624
+            },
+            "tokenization": {
+                "input_text": "paraphrase: 1, (pg 37)\nSometimes the professor will bring new words with definition, so student can learn a new word during lecture by noting down the word and its definition.\n4, (pg 38)\n5, (pg 38)\nWord: Findings\nLecture language: \u201cFindings, or...\u201d\nDefinition: \u201cThe result of four interviews\u201d\nWord: Charisma\nLecture language: \u201cBy Charisma, I mean...\u201d\nDefinition: \u201cthe ability to attract other people and make it admire you\u201d\nWord: Bungee Jump\nLecture language: \u201cWhat\u2019s bungee jump? It\u2019s...\u201d\nDefinition: \u201ca sport in which you jumped off something very high with a rope tat strech tight to the leg without touching the ground\u201d\nWord: Fakie\nLecture language: \u201cWhat I mean by fakie is...\u201d\nDefinition: \u201cstanding on skateboard, facing forward when skateboard moving backward\u201d\nWord: Zilch\nLecture language: \u201cZilch is...\u201d\nDefinition: \u201cthe informal term for the word \u2018nothing\u2019 \u201c\n6, (pg 39)\nAme \u2013 America, Americans\nSrv \u2013 survey\nLeis \u2013 leisure\nSpe \u2013 spend\nFs \u2013 focus\nReh - research\n7, (pg 39)\n/\nLeis srv fs avg age 25. All srv help iden imp words.\nExperts reh Ame pop spds leis vs sps work.\nExprts get info on diff ages grps & genders spd leis time.\n2, (pg 40)\nTopic: Leisure time\nHow people spend their time at work: people in workplaces where efficiency is number one value that people have to increase their efficiency. Filling spead up, filling their life on workplaces, fear of not having enough times for relax.\nFirst way people organize leisure time: Value the efficiency. These sides make people spend time on those, like walking around, or learning about tour side, instead of spending time slowly, people drive arround with played camera out the window, or playing efficiently as they work.\nSecond way people organize leisure time: Multitasks. Do leisure activities as much as possible in limitted amount of times. People are able to fill 11 leisure hours in 7 actual hours. Technology make leisure time possible like work time. \nPeople are hurry at work and tired at home, leisure time in low energy choices.\nNumber 1 leisure activity is watching Tv, some people as so tired that they become couch potatoes \u2013 means want to sit in couch and do nothing but watching Tv \u2013 as response to stress. ",
+                "input_length": 200,
+                "token_count": 200,
+                "attention_mask_sum": 200
+            },
+            "generation": {
+                "generated_text": ": 1, (pg 37) Sometimes the professor will bring new words with definition, so student can learn new words during lecture by noting down the word and its definition. 4, (pg 38) 5, (pg 38) Word: Findings Lecture language: \u201cFindings, or...\u201d Definition: \u201cthe ability to attract other people and make it admire you\u201d Word: Charisma Lecture language: \u201cWhat\u2019s bungee jump? It\u2019s...\u201d Definition: \u201cstanding on skateboard, facing forward when skate",
+                "generation_length": 113
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 470,
+                "generated_word_count": 102,
+                "original_sentence_count": 16,
+                "generated_sentence_count": 3
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.3179723502304147,
+                "rouge2_f1": 0.3101851851851852,
+                "rougeL_f1": 0.3133640552995392,
+                "bert_score_f1": 0.25910258293151855,
+                "bleu_score": 0.025814963826514062
+            },
+            "readability": {
+                "flesch_reading_ease": 62.68,
+                "flesch_kincaid_grade": 8.7,
+                "gunning_fog_index": 8.56,
+                "coleman_liau_index": 10.73
+            },
+            "semantic_similarity": 0.8309107411312485
+        }
+    },
+    {
+        "filename": "Tai lieu 17.docx",
+        "analysis": {
+            "model_name": "gpt2",
+            "task": "Summarize this text: ",
+            "architecture": {
+                "total_parameters": 124439808,
+                "trainable_parameters": 124439808
+            },
+            "tokenization": {
+                "input_text": "Summarize this text: : We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of technology. The discovery of fire, the invention of the wheel, the harnessing of electricity\u2014all were transformational moments for civilization. All were waves of technology that started small, with a few precarious experiments, but eventually they broke across the world. These waves followed a similar trajectory: breakthrough technologies were invented, delivered huge value, and so they proliferated, became more effective, cheaper, more widespread and were absorbed into the normal, ever-evolving fabric of human life. \nWe are now facing a new wave of technology, centered around AI but including synthetic biology, quantum computing, and abundant new sources of energy. In many respects it will repeat this pattern. Yet it will also depart from it in crucial ways only now becoming clear. Amidst all the hype, the hope, the fear, I think the fundamentals are getting lost; the unique characteristics of this wave are getting missed in the noise. Understanding them, seeing what, exactly, is changing, is critical to understanding the future.\n",
+                "input_length": 175,
+                "token_count": 175,
+                "attention_mask_sum": 175
+            },
+            "generation": {
+                "generated_text": "Summarize this text: : We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of technology. The discovery of fire, the invention of the wheel, the harnessing of electricity\u2014all were transformational moments for civilization. All were waves of technology that started small, with a few precarious experiments, but eventually they broke across the world. These waves followed a similar trajectory: breakthrough technologies were invented, delivered huge value, and so they proliferated, became more effective, cheaper, more widespread and were absorbed into the normal, ever-evolving fabric of human life. \nWe are now facing a new wave of technology, centered around AI but including synthetic biology, quantum computing, and abundant new sources of energy. In many respects it will repeat this pattern. Yet it will also depart from it in many ways.\nThe first wave of AI is the \"superintelligence\" that is now called AI-like. It is a new kind of AI that is not just a new kind of AI, but a new kind of AI that is not just a new kind of AI, but a new kind of AI that is not just a new kind of AI, but a new kind of AI that is not just a new kind of AI, but a new kind of AI that is not just a new",
+                "generation_length": 275
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 258,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 10
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.70873786407767,
+                "rouge2_f1": 0.6634146341463414,
+                "rougeL_f1": 0.6941747572815534,
+                "bert_score_f1": 0.6006155014038086,
+                "bleu_score": 0.6193127743992097
+            },
+            "readability": {
+                "flesch_reading_ease": 57.0,
+                "flesch_kincaid_grade": 10.9,
+                "gunning_fog_index": 13.82,
+                "coleman_liau_index": 8.88
+            },
+            "semantic_similarity": 0.8623874499595773
+        }
+    },
+    {
+        "filename": "203970.pdf",
+        "analysis": {
+            "model_name": "t5-base",
+            "task": "paraphrase",
+            "architecture": {
+                "total_parameters": 222903552,
+                "trainable_parameters": 222903552
+            },
+            "tokenization": {
+                "input_text": "paraphrase: The author(s) shown below used Federal funds provided by the U.S.\nDepartment of Justice and prepared the following final report:\nDocument ...",
+                "input_length": 250,
+                "token_count": 250,
+                "attention_mask_sum": 250
+            },
+            "generation": {
+                "generated_text": "True",
+                "generation_length": 2
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 118808,
+                "generated_word_count": 1,
+                "original_sentence_count": 1974,
+                "generated_sentence_count": 1
+            },
+            "content_preservation": {
+                "rouge1_f1": 1.5015916871884196e-05,
+                "rouge2_f1": 0.0,
+                "rougeL_f1": 1.5015916871884196e-05,
+                "bert_score_f1": -0.5164668560028076,
+                "bleu_score": 0
+            },
+            "readability": {
+                "flesch_reading_ease": 121.22,
+                "flesch_kincaid_grade": -3.5,
+                "gunning_fog_index": 0.4,
+                "coleman_liau_index": -22.21
+            },
+            "semantic_similarity": -0.06556925529521623
+        }
+    },
+    {
+        "filename": "203970.pdf",
+        "analysis": {
+            "model_name": "t5-base",
+            "task": "summarize",
+            "architecture": {
+                "total_parameters": 222903552,
+                "trainable_parameters": 222903552
+            },
+            "tokenization": {
+                "input_text": "summarize: The author(s) shown below used Federal funds provided by the U.S.\nDepartment of Justice and prepared the following final report:\nDocument T...",
+                "input_length": 250,
+                "token_count": 250,
+                "attention_mask_sum": 250
+            },
+            "generation": {
+                "generated_text": "author(s) used federal funds provided by the U.S. Department of Justice . report has not been published by the U.S. Department of Justice . author(s) used federal funds to prepare the report .",
+                "generation_length": 49
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 118808,
+                "generated_word_count": 39,
+                "original_sentence_count": 1974,
+                "generated_sentence_count": 3
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.0005104147119534623,
+                "rouge2_f1": 0.00043536026061565946,
+                "rougeL_f1": 0.0005104147119534623,
+                "bert_score_f1": -0.14183972775936127,
+                "bleu_score": 0.0
+            },
+            "readability": {
+                "flesch_reading_ease": 65.39,
+                "flesch_kincaid_grade": 5.6,
+                "gunning_fog_index": 6.4,
+                "coleman_liau_index": 7.99
+            },
+            "semantic_similarity": 0.0956363558286746
+        }
+    },
+    {
+        "filename": "re-151221-themetrictidefullreportexecsummary.pdf",
+        "analysis": {
+            "model_name": "facebook/bart-base",
+            "task": "Summarize this text: ",
+            "architecture": {
+                "total_parameters": 139420416,
+                "trainable_parameters": 139420416
+            },
+            "tokenization": {
+                "input_text": "\n \n \nForeword  \nMetrics evoke a mixed reaction from the research community. A commitment \nto using data and evidence to inform decisions makes many of...",
+                "input_length": 250,
+                "token_count": 250,
+                "attention_mask_sum": 250
+            },
+            "generation": {
+                "generated_text": "Abstract  \ufffd \ufffdForeword  \ufffdMetrics evoke a mixed reaction from the research community. A commitment \ufffdto using data and evidence to inform decisions makes many of us sympathetic, \ufffdeven enthusiastic, about the prospect of granular, real-time analysis of our own \ufffdactivities. If we as a sector can\u2019t take full advantage of the possibilities of big \ufffddata, then who can? \ufffdYet we only have to look around us, at the blunt use of metrics such as journal \ufffdimpact factors, h-indices and grant income targets to be reminded of the \ue000\u2019s \ufffdpitfalls. Some of the most precious qualities of academic culture resist simple \ue006quantification, and individual indicators can struggle to do justice to the \ue815richness and plurality of our research. Too often, poorly designed evaluation criteria are \u201cdominating minds, \uec46distorting behaviour and determining careers.\u201d 1 At their worst, metrics can contribute to what Rowan \ue986Williams, the former Archbishop of Canterbury, calls a \u201cnew barbarity\u201d in our universities.2 The tragic case \ue671of Stefan Grimm, whose suicide in September 2014 led Imperial College to launch a",
+                "generation_length": 256
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 5195,
+                "generated_word_count": 197,
+                "original_sentence_count": 166,
+                "generated_sentence_count": 6
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.07250628667225482,
+                "rouge2_f1": 0.07127882599580711,
+                "rougeL_f1": 0.07208717518860017,
+                "bert_score_f1": 0.4562057852745056,
+                "bleu_score": 7.773678588834487e-12
+            },
+            "readability": {
+                "flesch_reading_ease": 41.4,
+                "flesch_kincaid_grade": 12.8,
+                "gunning_fog_index": 15.81,
+                "coleman_liau_index": 12.42
+            },
+            "semantic_similarity": 0.7646085165259986
+        }
+    },
+    {
+        "filename": "1910.10683v4.pdf",
+        "analysis": {
+            "model_name": "t5-large",
+            "task": "summarize",
+            "architecture": {
+                "total_parameters": 737668096,
+                "trainable_parameters": 737668096
+            },
+            "tokenization": {
+                "input_text": "summarize: Journal of Machine Learning Research 21 (2020) 1-67\nSubmitted 1/20; Revised 6/20; Published 6/20\nExploring the Limits of Transfer Learning ...",
+                "input_length": 250,
+                "token_count": 250,
+                "attention_mask_sum": 250
+            },
+            "generation": {
+                "generated_text": ".-level tasks .-level tasks . each batch for many of the high-level tasks . each batch for many of the high-level tasks .level tasks . each batch for many of the high-level tasks . each batch for many of the high-level tasks .level tasks . transfer learning .n . .. .. ......",
+                "generation_length": 84
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 38177,
+                "generated_word_count": 52,
+                "original_sentence_count": 1521,
+                "generated_sentence_count": 7
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.002535264449658818,
+                "rouge2_f1": 0.001078894133513149,
+                "rougeL_f1": 0.0023194972624538124,
+                "bert_scores": {
+                    "Precision": -0.22917594015598297,
+                    "Recall": -0.4728056788444519,
+                    "F1": -0.352034330368042
+                },
+                "bleu_score": 8.59e-320
+            },
+            "readability": {
+                "flesch_reading_ease": 85.89,
+                "flesch_kincaid_grade": 4.0,
+                "gunning_fog_index": 4.32,
+                "coleman_liau_index": 8.1
+            },
+            "semantic_similarity": 0.33247905184381626
+        }
+    },
+    {
+        "filename": "re-151221-themetrictidefullreportexecsummary.pdf",
+        "analysis": {
+            "model_name": "t5-large",
+            "task": "summarize",
+            "architecture": {
+                "total_parameters": 737668096,
+                "trainable_parameters": 737668096
+            },
+            "tokenization": {
+                "input_text": "summarize: \n \n \nForeword  \nMetrics evoke a mixed reaction from the research community. A commitment \nto using data and evidence to inform decisions ma...",
+                "input_length": 250,
+                "token_count": 250,
+                "attention_mask_sum": 250
+            },
+            "generation": {
+                "generated_text": ". the eu and hEFCE propose a framework for responsible metrics . . the eu and hEFCE propose a framework for responsible metrics . .. there is a need for greater transparency in the construction and use of indicators . there is a need for greater transparency in the construction and use of indicators .",
+                "generation_length": 78
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 5195,
+                "generated_word_count": 55,
+                "original_sentence_count": 166,
+                "generated_sentence_count": 6
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.019371502367628066,
+                "rouge2_f1": 0.013781223083548667,
+                "rougeL_f1": 0.018510546706844596,
+                "bert_scores": {
+                    "Precision": 0.014561724849045277,
+                    "Recall": -0.33381497859954834,
+                    "F1": -0.16409529745578766
+                },
+                "bleu_score": 1.304274545597584e-41
+            },
+            "readability": {
+                "flesch_reading_ease": 67.76,
+                "flesch_kincaid_grade": 6.8,
+                "gunning_fog_index": 8.13,
+                "coleman_liau_index": 10.83
+            },
+            "semantic_similarity": 0.5258013508350826
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 5.docx",
+        "analysis": {
+            "model_name": "t5-large",
+            "task": "summarize",
+            "architecture": {
+                "total_parameters": 737668096,
+                "trainable_parameters": 737668096
+            },
+            "tokenization": {
+                "input_text": "summarize: When you plant a tree, you are helping your environment in many ways. First, your tree will provide a home and food for other creatures. Le...",
+                "input_length": 55,
+                "token_count": 55,
+                "attention_mask_sum": 55
+            },
+            "generation": {
+                "generated_text": ". a tree will provide a home and food for other creatures .a tree will provide shelter for other creatures . a tree will provide shelter for other creatures .a tree will provide shelter for other creatures . a tree will provide . . . . . and . tree will provide . . . . a tree will provide shade in the winter, protect the species in shadows",
+                "generation_length": 94
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 261,
+                "generated_word_count": 70,
+                "original_sentence_count": 15,
+                "generated_sentence_count": 14
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.2704626334519573,
+                "rouge2_f1": 0.15053763440860216,
+                "rougeL_f1": 0.2348754448398577,
+                "bert_scores": {
+                    "Precision": 0.01894361339509487,
+                    "Recall": -0.10393023490905762,
+                    "F1": -0.041573166847229004
+                },
+                "bleu_score": 0.019944656643518112
+            },
+            "readability": {
+                "flesch_reading_ease": 80.28,
+                "flesch_kincaid_grade": 4.1,
+                "gunning_fog_index": 3.2,
+                "coleman_liau_index": 6.97
+            },
+            "semantic_similarity": 0.6518647399826708
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 4.docx",
+        "analysis": {
+            "model_name": "t5-base",
+            "task": "summarize",
+            "architecture": {
+                "total_parameters": 222903552,
+                "trainable_parameters": 222903552
+            },
+            "tokenization": {
+                "input_text": "summarize: Both sources states the comparsion between books and visual aids about which is better. Unsurprisingly, both sources contain opposite opini...",
+                "input_length": 46,
+                "token_count": 46,
+                "attention_mask_sum": 46
+            },
+            "generation": {
+                "generated_text": "sources 4A and 4B use the information storing to validate the opinion . sources 4B and 4A use the attention to explain the differences .",
+                "generation_length": 33
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 209,
+                "generated_word_count": 25,
+                "original_sentence_count": 9,
+                "generated_sentence_count": 2
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.2146341463414634,
+                "rouge2_f1": 0.13793103448275862,
+                "rougeL_f1": 0.1853658536585366,
+                "bert_scores": {
+                    "Precision": 0.2603529095649719,
+                    "Recall": -0.11095555126667023,
+                    "F1": 0.06932392716407776
+                },
+                "bleu_score": 0.000217403862983637
+            },
+            "readability": {
+                "flesch_reading_ease": 68.26,
+                "flesch_kincaid_grade": 6.6,
+                "gunning_fog_index": 9.82,
+                "coleman_liau_index": 9.26
+            },
+            "semantic_similarity": 0.6629185249260708
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 4.docx",
+        "analysis": {
+            "model_name": "t5-base",
+            "task": "summarize",
+            "architecture": {
+                "total_parameters": 222903552,
+                "trainable_parameters": 222903552
+            },
+            "tokenization": {
+                "input_text": "summarize: Both sources states the comparsion between books and visual aids about which is better. Unsurprisingly, both sources contain opposite opini...",
+                "input_length": 235,
+                "token_count": 235,
+                "attention_mask_sum": 235
+            },
+            "generation": {
+                "generated_text": "sources state the comparsion between books and visual aids . sources 4A and 4B say visual aids are better . both sources use the information storing to validate the opinion .",
+                "generation_length": 41
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 209,
+                "generated_word_count": 31,
+                "original_sentence_count": 9,
+                "generated_sentence_count": 3
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.2666666666666667,
+                "rouge2_f1": 0.21153846153846154,
+                "rougeL_f1": 0.24761904761904766,
+                "bert_scores": {
+                    "Precision": 0.44580546021461487,
+                    "Recall": 0.042264048010110855,
+                    "F1": 0.23740535974502563
+                },
+                "bleu_score": 0.0018899845119401226
+            },
+            "readability": {
+                "flesch_reading_ease": 70.5,
+                "flesch_kincaid_grade": 5.7,
+                "gunning_fog_index": 8.01,
+                "coleman_liau_index": 10.18
+            },
+            "semantic_similarity": 0.7477011498336819
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 4.docx",
+        "analysis": {
+            "model_name": "t5-large",
+            "task": "summarize",
+            "architecture": {
+                "total_parameters": 737668096,
+                "trainable_parameters": 737668096
+            },
+            "tokenization": {
+                "input_text": "summarize: Both sources states the comparsion between books and visual aids about which is better. Unsurprisingly, both sources contain opposite opini...",
+                "input_length": 235,
+                "token_count": 235,
+                "attention_mask_sum": 235
+            },
+            "generation": {
+                "generated_text": "both sources state the comparsion between books and visual aids about which is better . source 4A indicates that books are better, while source 4B says that visual aids are better . source 4A says that visual aids are not really cheaper than books .",
+                "generation_length": 57
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 209,
+                "generated_word_count": 46,
+                "original_sentence_count": 9,
+                "generated_sentence_count": 3
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.375,
+                "rouge2_f1": 0.35135135135135137,
+                "rougeL_f1": 0.375,
+                "bert_scores": {
+                    "Precision": 0.5916109085083008,
+                    "Recall": 0.14163441956043243,
+                    "F1": 0.35810941457748413
+                },
+                "bleu_score": 0.023968646379184347
+            },
+            "readability": {
+                "flesch_reading_ease": 82.65,
+                "flesch_kincaid_grade": 5.2,
+                "gunning_fog_index": 7.5,
+                "coleman_liau_index": 9.91
+            },
+            "semantic_similarity": 0.8104343490600904
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "t5-large",
+            "task": "paraphrase",
+            "architecture": {
+                "total_parameters": 737668096,
+                "trainable_parameters": 737668096
+            },
+            "tokenization": {
+                "input_text": "paraphrase: We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of techn...",
+                "input_length": 246,
+                "token_count": 246,
+                "attention_mask_sum": 246
+            },
+            "generation": {
+                "generated_text": "we are about to see the greatest redistribution of power in history.: We are about to see the greatest redistribution of power in history. the greatest redistribution of power in history. greatest redistribution of power in history. We are about to see the greatest redistribution of power in history.: we are about to see the greatest::.... discovery discovery. broke across  , The",
+                "generation_length": 90
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 73,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 7
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.27049180327868855,
+                "rouge2_f1": 0.11570247933884299,
+                "rougeL_f1": 0.19672131147540983,
+                "bert_scores": {
+                    "Precision": 0.07224120944738388,
+                    "Recall": -0.20169752836227417,
+                    "F1": -0.06685108691453934
+                },
+                "bleu_score": 0.032998072720660424
+            },
+            "readability": {
+                "flesch_reading_ease": 54.18,
+                "flesch_kincaid_grade": 7.9,
+                "gunning_fog_index": 4.79,
+                "coleman_liau_index": 9.94
+            },
+            "semantic_similarity": 0.5526753659749989
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "facebook/bart-large",
+            "task": "Summarize this text: ",
+            "architecture": {
+                "total_parameters": 406291456,
+                "trainable_parameters": 406291456
+            },
+            "tokenization": {
+                "input_text": "We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of technology. The d...",
+                "input_length": 229,
+                "token_count": 229,
+                "attention_mask_sum": 229
+            },
+            "generation": {
+                "generated_text": "Over millennia, humanity has been shaped by successive waves of technology. The discovery of fire, the invention of the wheel, the harnessing of electricity\u2014all were transformational moments for civilization. These waves followed a similar trajectory: breakthrough technologies were invented, delivered huge value, and so they proliferated, became more effective, cheaper, more widespread and were absorbed into the normal, ever-evolving fabric of human life. We are now facing a new wave of technology, centered around AI but including synthetic biology, quantum computing, and abundant new sources of energy. In many respects it will repeat this pattern. Yet it will also depart from it in crucial ways only now becoming clear. Amidst all the hype, the hope, the fear, I think the fundamentals are getting lost; the unique characteristics of this wave are getting missed in the noise. Understanding them, seeing what, exactly, is changing, is critical to understanding the future.We are about to see the greatest redistribution of power in history. It will be the greatest transfer of wealth in history, and it will be one of the greatest shifts in the world\u2019s power structure in the history of the world. All were waves of this kind. ",
+                "generation_length": 245
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 230,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 10
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.8825065274151436,
+                "rouge2_f1": 0.8608923884514437,
+                "rougeL_f1": 0.7885117493472584,
+                "bert_scores": {
+                    "Precision": 0.7241114974021912,
+                    "Recall": 0.760140597820282,
+                    "F1": 0.7424888014793396
+                },
+                "bleu_score": 0.8289705588305403
+            },
+            "readability": {
+                "flesch_reading_ease": 53.41,
+                "flesch_kincaid_grade": 10.2,
+                "gunning_fog_index": 12.63,
+                "coleman_liau_index": 12.18
+            },
+            "semantic_similarity": 0.9797445989539474
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "gpt2",
+            "task": "Summarize this text: ",
+            "architecture": {
+                "total_parameters": 124439808,
+                "trainable_parameters": 124439808
+            },
+            "tokenization": {
+                "input_text": "Summarize this text: : We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive wav...",
+                "input_length": 234,
+                "token_count": 234,
+                "attention_mask_sum": 234
+            },
+            "generation": {
+                "generated_text": "Summarize this text: : We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of technology. The discovery of fire, the invention of the wheel, the harnessing of electricity\u2014all were transformational moments for civilization. All were waves of technology that started small, with a few precarious experiments, but eventually they broke across the world. These waves followed a similar trajectory: breakthrough technologies were invented, delivered huge value, and so they proliferated, became more effective, cheaper, more widespread and were absorbed into the normal, ever-evolving fabric of human life. \nWe are now facing a new wave of technology, centered around AI but including synthetic biology, quantum computing, and abundant new sources of energy. In many respects it will repeat this pattern. Yet it will also depart from it in crucial ways only now becoming clear. Amidst all the hype, the hope, the fear, I think the fundamentals are getting lost; the unique characteristics of this wave are getting missed in the noise. Understanding them, seeing what, exactly, is changing, is critical to understanding the future.\nThe first wave of AI is the \"superintelligence\" that is now being described as \"the next generation of AI.\" It is a new type of AI that is not just a new type of AI, but a new type of AI that is not just a new type of AI, but a new type of AI that is not just a new type of AI, but a new type of AI that is not just a new type of AI, but a new type of AI that is not just a new type of AI, but a new type of AI that is not just a",
+                "generation_length": 350
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 335,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 12
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.7705263157894736,
+                "rouge2_f1": 0.7695560253699788,
+                "rougeL_f1": 0.7705263157894736,
+                "bert_scores": {
+                    "Precision": 0.5425378084182739,
+                    "Recall": 0.9454362392425537,
+                    "F1": 0.7372760772705078
+                },
+                "bleu_score": 0.6371761705938109
+            },
+            "readability": {
+                "flesch_reading_ease": 55.37,
+                "flesch_kincaid_grade": 11.5,
+                "gunning_fog_index": 14.23,
+                "coleman_liau_index": 8.94
+            },
+            "semantic_similarity": 0.9014707443390506
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "facebook/bart-base",
+            "task": "Summarize this text: ",
+            "architecture": {
+                "total_parameters": 139420416,
+                "trainable_parameters": 139420416
+            },
+            "tokenization": {
+                "input_text": "We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of technology. The d...",
+                "input_length": 229,
+                "token_count": 229,
+                "attention_mask_sum": 229
+            },
+            "generation": {
+                "generated_text": "We are about to see the greatest redistribution of power in history. _____________________________________________Over millennia, humanity has been shaped by successive waves of technology. The discovery of fire, the invention of the wheel, the harnessing of electricity\u2014all were transformational moments for civilization. All were waves of Technology that started small, with a few precarious experiments, but eventually they broke across the world. These waves followed a similar trajectory: breakthrough technologies were invented, delivered huge value, and so they proliferated, became more effective, cheaper, more widespread and were absorbed into the normal, ever-evolving fabric of human life. _____________We are now facing a new wave of technology, centered around AI but including synthetic biology, quantum computing, and abundant new sources of energy. In many respects it will repeat this pattern. Yet it will also depart from it in crucial ways only now becoming clear. Amidst all the hype, the hope, the fear, I think the fundamentals are getting lost; the unique characteristics of this wave are getting missed in the noise. Understanding them, seeing what, exactly, is changing, is critical to understanding the future._______________________________________________",
+                "generation_length": 235
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 213,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 10
+            },
+            "content_preservation": {
+                "rouge1_f1": 1.0,
+                "rouge2_f1": 1.0,
+                "rougeL_f1": 1.0,
+                "bert_scores": {
+                    "Precision": 0.8861221671104431,
+                    "Recall": 0.9403939247131348,
+                    "F1": 0.913274347782135
+                },
+                "bleu_score": 0.9550967403371522
+            },
+            "readability": {
+                "flesch_reading_ease": 44.64,
+                "flesch_kincaid_grade": 11.5,
+                "gunning_fog_index": 13.87,
+                "coleman_liau_index": 16.7
+            },
+            "semantic_similarity": 0.2904488481107508
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "t5-small",
+            "task": "summarize",
+            "architecture": {
+                "total_parameters": 60506624,
+                "trainable_parameters": 60506624
+            },
+            "tokenization": {
+                "input_text": "summarize: We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of techno...",
+                "input_length": 245,
+                "token_count": 245,
+                "attention_mask_sum": 245
+            },
+            "generation": {
+                "generated_text": "a new wave of technology will repeat this pattern, but it will depart from it in crucial ways only now becoming clear. the unique characteristics of this wave are getting missed in the noise. understanding them, seeing what, exactly, is changing, is critical to understanding the future.",
+                "generation_length": 57
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 55,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 3
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.408695652173913,
+                "rouge2_f1": 0.35964912280701755,
+                "rougeL_f1": 0.4,
+                "bert_scores": {
+                    "Precision": 0.6461289525032043,
+                    "Recall": 0.1351340264081955,
+                    "F1": 0.379372239112854
+                },
+                "bleu_score": 0.04507026710171661
+            },
+            "readability": {
+                "flesch_reading_ease": 55.54,
+                "flesch_kincaid_grade": 9.4,
+                "gunning_fog_index": 10.54,
+                "coleman_liau_index": 11.19
+            },
+            "semantic_similarity": 0.8326654639418332
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "t5-base",
+            "task": "summarize",
+            "architecture": {
+                "total_parameters": 222903552,
+                "trainable_parameters": 222903552
+            },
+            "tokenization": {
+                "input_text": "summarize: We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of techno...",
+                "input_length": 245,
+                "token_count": 245,
+                "attention_mask_sum": 245
+            },
+            "generation": {
+                "generated_text": "aaron carroll: we are about to see the greatest redistribution of power in history . he says we are facing a new wave of technology, centered around AI . he says we are facing a new wave of technology, including synthetic biology, quantum computing . carroll: we are about to see the greatest redistribution of power in history .",
+                "generation_length": 85
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 64,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 4
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.3361344537815126,
+                "rouge2_f1": 0.22033898305084745,
+                "rougeL_f1": 0.26890756302521013,
+                "bert_scores": {
+                    "Precision": 0.21174177527427673,
+                    "Recall": -0.048845089972019196,
+                    "F1": 0.07955573499202728
+                },
+                "bleu_score": 0.040611808713052935
+            },
+            "readability": {
+                "flesch_reading_ease": 49.01,
+                "flesch_kincaid_grade": 9.9,
+                "gunning_fog_index": 9.88,
+                "coleman_liau_index": 9.74
+            },
+            "semantic_similarity": 0.7508632722146735
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "t5-large",
+            "task": "summarize",
+            "architecture": {
+                "total_parameters": 737668096,
+                "trainable_parameters": 737668096
+            },
+            "tokenization": {
+                "input_text": "summarize: We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of techno...",
+                "input_length": 245,
+                "token_count": 245,
+                "attention_mask_sum": 245
+            },
+            "generation": {
+                "generated_text": "a new wave of technology is centered around artificial intelligence (AI) adam stout says it will repeat pattern, but also depart from it in crucial ways . stout: we are about to see the greatest redistribution of power in history . he says we need to understand what, exactly, is changing, and how to adapt .",
+                "generation_length": 81
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 63,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 3
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.3474576271186441,
+                "rouge2_f1": 0.23931623931623935,
+                "rougeL_f1": 0.2457627118644068,
+                "bert_scores": {
+                    "Precision": 0.3458600640296936,
+                    "Recall": 0.024741604924201965,
+                    "F1": 0.18159058690071106
+                },
+                "bleu_score": 0.04236300784326907
+            },
+            "readability": {
+                "flesch_reading_ease": 61.97,
+                "flesch_kincaid_grade": 9.0,
+                "gunning_fog_index": 10.85,
+                "coleman_liau_index": 8.99
+            },
+            "semantic_similarity": 0.7572987395900697
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "t5-small",
+            "task": "paraphrase",
+            "architecture": {
+                "total_parameters": 60506624,
+                "trainable_parameters": 60506624
+            },
+            "tokenization": {
+                "input_text": "paraphrase: We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of techn...",
+                "input_length": 246,
+                "token_count": 246,
+                "attention_mask_sum": 246
+            },
+            "generation": {
+                "generated_text": "a new wave of technology will repeat this pattern, but it will depart from it in crucial ways only now becoming clear. a new wave of technology will repeat this pattern, centered around AI but including synthetic biology, quantum computing, and abundant new sources of energy.",
+                "generation_length": 56
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 52,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 2
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.36681222707423583,
+                "rouge2_f1": 0.2907488986784141,
+                "rougeL_f1": 0.2183406113537118,
+                "bert_scores": {
+                    "Precision": 0.603972315788269,
+                    "Recall": 0.04763464629650116,
+                    "F1": 0.31220152974128723
+                },
+                "bleu_score": 0.030885762282693133
+            },
+            "readability": {
+                "flesch_reading_ease": 48.13,
+                "flesch_kincaid_grade": 12.3,
+                "gunning_fog_index": 14.42,
+                "coleman_liau_index": 11.38
+            },
+            "semantic_similarity": 0.8812838090403394
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "t5-base",
+            "task": "paraphrase",
+            "architecture": {
+                "total_parameters": 222903552,
+                "trainable_parameters": 222903552
+            },
+            "tokenization": {
+                "input_text": "paraphrase: We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of techn...",
+                "input_length": 246,
+                "token_count": 246,
+                "attention_mask_sum": 246
+            },
+            "generation": {
+                "generated_text": "True",
+                "generation_length": 2
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 1,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 1
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.0,
+                "rouge2_f1": 0.0,
+                "rougeL_f1": 0.0,
+                "bert_scores": {
+                    "Precision": -0.17849962413311005,
+                    "Recall": -0.4425502121448517,
+                    "F1": -0.3121662139892578
+                },
+                "bleu_score": 0
+            },
+            "readability": {
+                "flesch_reading_ease": 121.22,
+                "flesch_kincaid_grade": -3.5,
+                "gunning_fog_index": 0.4,
+                "coleman_liau_index": -22.21
+            },
+            "semantic_similarity": 0.18292396282777032
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "t5-large",
+            "task": "paraphrase",
+            "architecture": {
+                "total_parameters": 737668096,
+                "trainable_parameters": 737668096
+            },
+            "tokenization": {
+                "input_text": "paraphrase: We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of techn...",
+                "input_length": 246,
+                "token_count": 246,
+                "attention_mask_sum": 246
+            },
+            "generation": {
+                "generated_text": "we are about to see the greatest redistribution of power in history.: We are about to see the greatest redistribution of power in history. the greatest redistribution of power in history. greatest redistribution of power in history. We are about to see the greatest redistribution of power in history.: we are about to see the greatest::.... discovery discovery. broke across  , The",
+                "generation_length": 90
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 73,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 7
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.27049180327868855,
+                "rouge2_f1": 0.11570247933884299,
+                "rougeL_f1": 0.19672131147540983,
+                "bert_scores": {
+                    "Precision": 0.07224120944738388,
+                    "Recall": -0.20169752836227417,
+                    "F1": -0.06685108691453934
+                },
+                "bleu_score": 0.032998072720660424
+            },
+            "readability": {
+                "flesch_reading_ease": 54.18,
+                "flesch_kincaid_grade": 7.9,
+                "gunning_fog_index": 4.79,
+                "coleman_liau_index": 9.94
+            },
+            "semantic_similarity": 0.5526753659749989
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "t5-large",
+            "task": "paraphrase",
+            "architecture": {
+                "total_parameters": 737668096,
+                "trainable_parameters": 737668096
+            },
+            "tokenization": {
+                "input_text": "paraphrase: We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of techn...",
+                "input_length": 246,
+                "token_count": 246,
+                "attention_mask_sum": 246
+            },
+            "generation": {
+                "generated_text": "we are about to see the greatest redistribution of power in history.: We are about to see the greatest redistribution of power in history. the greatest redistribution of power in history. greatest redistribution of power in history. We are about to see the greatest redistribution of power in history.: we are about to see the greatest::.... discovery discovery. broke across  , The",
+                "generation_length": 90
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 73,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 7
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.27049180327868855,
+                "rouge2_f1": 0.11570247933884299,
+                "rougeL_f1": 0.19672131147540983,
+                "bert_scores": {
+                    "Precision": 0.07224120944738388,
+                    "Recall": -0.20169752836227417,
+                    "F1": -0.06685108691453934
+                },
+                "bleu_score": 0.032998072720660424
+            },
+            "readability": {
+                "flesch_reading_ease": 54.18,
+                "flesch_kincaid_grade": 7.9,
+                "gunning_fog_index": 4.79,
+                "coleman_liau_index": 9.94
+            },
+            "semantic_similarity": 0.5526753659749989
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "t5-base",
+            "task": "paraphrase",
+            "architecture": {
+                "total_parameters": 222903552,
+                "trainable_parameters": 222903552
+            },
+            "tokenization": {
+                "input_text": "paraphrase: We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of techn...",
+                "input_length": 246,
+                "token_count": 246,
+                "attention_mask_sum": 246
+            },
+            "generation": {
+                "generated_text": "True",
+                "generation_length": 2
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 1,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 1
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.0,
+                "rouge2_f1": 0.0,
+                "rougeL_f1": 0.0,
+                "bert_scores": {
+                    "Precision": -0.17849962413311005,
+                    "Recall": -0.4425502121448517,
+                    "F1": -0.3121662139892578
+                },
+                "bleu_score": 0
+            },
+            "readability": {
+                "flesch_reading_ease": 121.22,
+                "flesch_kincaid_grade": -3.5,
+                "gunning_fog_index": 0.4,
+                "coleman_liau_index": -22.21
+            },
+            "semantic_similarity": 0.18292396282777032
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "facebook/bart-base",
+            "task": "Paraphrase this text: ",
+            "architecture": {
+                "total_parameters": 139420416,
+                "trainable_parameters": 139420416
+            },
+            "tokenization": {
+                "input_text": "We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of technology. The d...",
+                "input_length": 229,
+                "token_count": 229,
+                "attention_mask_sum": 229
+            },
+            "generation": {
+                "generated_text": "We are about to see the greatest redistribution of power in history. _____________________________________________Over millennia, humanity has been shaped by successive waves of technology. The discovery of fire, the invention of the wheel, the harnessing of electricity\u2014all were transformational moments for civilization. All were waves of Technology that started small, with a few precarious experiments, but eventually they broke across the world. These waves followed a similar trajectory: breakthrough technologies were invented, delivered huge value, and so they proliferated, became more effective, cheaper, more widespread and were absorbed into the normal, ever-evolving fabric of human life. _____________We are now facing a new wave of technology, centered around AI but including synthetic biology, quantum computing, and abundant new sources of energy. In many respects it will repeat this pattern. Yet it will also depart from it in crucial ways only now becoming clear. Amidst all the hype, the hope, the fear, I think the fundamentals are getting lost; the unique characteristics of this wave are getting missed in the noise. Understanding them, seeing what, exactly, is changing, is critical to understanding the future._______________________________________________",
+                "generation_length": 235
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 213,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 10
+            },
+            "content_preservation": {
+                "rouge1_f1": 1.0,
+                "rouge2_f1": 1.0,
+                "rougeL_f1": 1.0,
+                "bert_scores": {
+                    "Precision": 0.8861221671104431,
+                    "Recall": 0.9403939247131348,
+                    "F1": 0.913274347782135
+                },
+                "bleu_score": 0.9550967403371522
+            },
+            "readability": {
+                "flesch_reading_ease": 44.64,
+                "flesch_kincaid_grade": 11.5,
+                "gunning_fog_index": 13.87,
+                "coleman_liau_index": 16.7
+            },
+            "semantic_similarity": 0.2904488481107508
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "facebook/bart-large",
+            "task": "Paraphrase this text: ",
+            "architecture": {
+                "total_parameters": 406291456,
+                "trainable_parameters": 406291456
+            },
+            "tokenization": {
+                "input_text": "We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of technology. The d...",
+                "input_length": 229,
+                "token_count": 229,
+                "attention_mask_sum": 229
+            },
+            "generation": {
+                "generated_text": "Over millennia, humanity has been shaped by successive waves of technology. The discovery of fire, the invention of the wheel, the harnessing of electricity\u2014all were transformational moments for civilization. These waves followed a similar trajectory: breakthrough technologies were invented, delivered huge value, and so they proliferated, became more effective, cheaper, more widespread and were absorbed into the normal, ever-evolving fabric of human life. We are now facing a new wave of technology, centered around AI but including synthetic biology, quantum computing, and abundant new sources of energy. In many respects it will repeat this pattern. Yet it will also depart from it in crucial ways only now becoming clear. Amidst all the hype, the hope, the fear, I think the fundamentals are getting lost; the unique characteristics of this wave are getting missed in the noise. Understanding them, seeing what, exactly, is changing, is critical to understanding the future.We are about to see the greatest redistribution of power in history. It will be the greatest transfer of wealth in history, and it will be one of the greatest shifts in the world\u2019s power structure in the history of the world. All were waves of this kind. ",
+                "generation_length": 245
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 230,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 10
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.8825065274151436,
+                "rouge2_f1": 0.8608923884514437,
+                "rougeL_f1": 0.7885117493472584,
+                "bert_scores": {
+                    "Precision": 0.7241114974021912,
+                    "Recall": 0.760140597820282,
+                    "F1": 0.7424888014793396
+                },
+                "bleu_score": 0.8289705588305403
+            },
+            "readability": {
+                "flesch_reading_ease": 53.41,
+                "flesch_kincaid_grade": 10.2,
+                "gunning_fog_index": 12.63,
+                "coleman_liau_index": 12.18
+            },
+            "semantic_similarity": 0.9797445989539474
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "gpt2",
+            "task": "Paraphrase this text: ",
+            "architecture": {
+                "total_parameters": 124439808,
+                "trainable_parameters": 124439808
+            },
+            "tokenization": {
+                "input_text": "Paraphrase this text: : We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive wa...",
+                "input_length": 234,
+                "token_count": 234,
+                "attention_mask_sum": 234
+            },
+            "generation": {
+                "generated_text": "Paraphrase this text: : We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of technology. The discovery of fire, the invention of the wheel, the harnessing of electricity\u2014all were transformational moments for civilization. All were waves of technology that started small, with a few precarious experiments, but eventually they broke across the world. These waves followed a similar trajectory: breakthrough technologies were invented, delivered huge value, and so they proliferated, became more effective, cheaper, more widespread and were absorbed into the normal, ever-evolving fabric of human life. \nWe are now facing a new wave of technology, centered around AI but including synthetic biology, quantum computing, and abundant new sources of energy. In many respects it will repeat this pattern. Yet it will also depart from it in crucial ways only now becoming clear. Amidst all the hype, the hope, the fear, I think the fundamentals are getting lost; the unique characteristics of this wave are getting missed in the noise. Understanding them, seeing what, exactly, is changing, is critical to understanding the future.\nThe first wave of AI is the \"superintelligence\" that is now being described as \"the next generation of AI.\" It is a new type of AI that is not just a new type of AI, but a new type of AI that is not just a new type of AI, but a new type of AI that is not just a new type of AI, but a new type of AI that is not just a new type of AI, but a new type of AI that is not just a new type of AI, but a new type of AI that is not just a",
+                "generation_length": 350
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 335,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 12
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.7705263157894736,
+                "rouge2_f1": 0.7695560253699788,
+                "rougeL_f1": 0.7705263157894736,
+                "bert_scores": {
+                    "Precision": 0.5428965091705322,
+                    "Recall": 0.9470966458320618,
+                    "F1": 0.7382388114929199
+                },
+                "bleu_score": 0.6371761705938109
+            },
+            "readability": {
+                "flesch_reading_ease": 55.37,
+                "flesch_kincaid_grade": 11.5,
+                "gunning_fog_index": 14.09,
+                "coleman_liau_index": 8.94
+            },
+            "semantic_similarity": 0.9012078474856733
+        }
+    },
+    {
+        "filename": "t\u00e0i li\u1ec7u 17.docx",
+        "analysis": {
+            "model_name": "gpt2-medium",
+            "task": "Summarize this text: ",
+            "architecture": {
+                "total_parameters": 354823168,
+                "trainable_parameters": 354823168
+            },
+            "tokenization": {
+                "input_text": "Summarize this text: : We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive wav...",
+                "input_length": 234,
+                "token_count": 234,
+                "attention_mask_sum": 234
+            },
+            "generation": {
+                "generated_text": "Summarize this text: : We are about to see the greatest redistribution of power in history.\nOver millennia, humanity has been shaped by successive waves of technology. The discovery of fire, the invention of the wheel, the harnessing of electricity\u2014all were transformational moments for civilization. All were waves of technology that started small, with a few precarious experiments, but eventually they broke across the world. These waves followed a similar trajectory: breakthrough technologies were invented, delivered huge value, and so they proliferated, became more effective, cheaper, more widespread and were absorbed into the normal, ever-evolving fabric of human life. \nWe are now facing a new wave of technology, centered around AI but including synthetic biology, quantum computing, and abundant new sources of energy. In many respects it will repeat this pattern. Yet it will also depart from it in crucial ways only now becoming clear. Amidst all the hype, the hope, the fear, I think the fundamentals are getting lost; the unique characteristics of this wave are getting missed in the noise. Understanding them, seeing what, exactly, is changing, is critical to understanding the future.\nThe first wave of technology was the invention of fire. The first fire was a simple fire, a fire that burned for a few minutes, and then burned out. The first fire was a fire that burned for a few minutes, and then burned out. The first fire was a fire that burned for a few minutes, and then burned out. The first fire was a fire that burned for a few minutes, and then burned out. The first fire was a fire that burned for a few minutes, and then burned out. The first fire was a fire that burned for a few",
+                "generation_length": 350
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 214,
+                "generated_word_count": 335,
+                "original_sentence_count": 10,
+                "generated_sentence_count": 17
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.773784355179704,
+                "rouge2_f1": 0.772823779193206,
+                "rougeL_f1": 0.773784355179704,
+                "bert_scores": {
+                    "Precision": 0.5126827955245972,
+                    "Recall": 0.9403641819953918,
+                    "F1": 0.718911349773407
+                },
+                "bleu_score": 0.6371761705938109
+            },
+            "readability": {
+                "flesch_reading_ease": 62.78,
+                "flesch_kincaid_grade": 8.7,
+                "gunning_fog_index": 11.07,
+                "coleman_liau_index": 10.09
+            },
+            "semantic_similarity": 0.9483147783666537
+        }
+    },
+    {
+        "filename": "re-151221-themetrictidefullreportexecsummary.pdf",
+        "analysis": {
+            "model_name": "t5-large",
+            "task": "summarize",
+            "architecture": {
+                "total_parameters": 737668096,
+                "trainable_parameters": 737668096
+            },
+            "tokenization": {
+                "input_text": "summarize: \n \n \nForeword  \nMetrics evoke a mixed reaction from the research community. A commitment \nto using data and evidence to inform decisions ma...",
+                "input_length": 250,
+                "token_count": 250,
+                "attention_mask_sum": 250
+            },
+            "generation": {
+                "generated_text": ". the eu and hEFCE propose a framework for responsible metrics . . the eu and hEFCE propose a framework for responsible metrics . .. there is a need for greater transparency in the construction and use of indicators . there is a need for greater transparency in the construction and use of indicators .",
+                "generation_length": 78
+            },
+            "computational_profile": {
+                "model_dtype": "torch.float32"
+            }
+        },
+        "metrics": {
+            "length_analysis": {
+                "original_word_count": 5195,
+                "generated_word_count": 55,
+                "original_sentence_count": 166,
+                "generated_sentence_count": 6
+            },
+            "content_preservation": {
+                "rouge1_f1": 0.019371502367628066,
+                "rouge2_f1": 0.013781223083548667,
+                "rougeL_f1": 0.018510546706844596,
+                "bert_scores": {
+                    "Precision": 0.014561724849045277,
+                    "Recall": -0.33381497859954834,
+                    "F1": -0.16409529745578766
+                },
+                "bleu_score": 1.304274545597584e-41
+            },
+            "readability": {
+                "flesch_reading_ease": 67.76,
+                "flesch_kincaid_grade": 6.8,
+                "gunning_fog_index": 8.13,
+                "coleman_liau_index": 10.83
+            },
+            "semantic_similarity": 0.5258013508350826
+        }
+    }
+]

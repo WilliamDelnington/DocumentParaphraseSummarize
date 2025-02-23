@@ -4,20 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document Paraphrase </title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        .chat-container { width: 400px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; }
-        .messages { height: 300px; overflow-y: scroll; margin-bottom: 10px; border: 1px solid #ddd; padding: 10px; }
-        .message { padding: 5px; }
-        input[type="text"] { width: 90%; padding: 5px; }
-        button { padding: 5px 10px; }
-        label[for="fileInput"] {border: 1px solid #000; padding: 5px 10px;}
-    </style>
     <!-- Apply custom HTML theme in the file mentioned here. -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Upload A Document</h1>
+    <h1>Paraphrase and Summarize Chatbot</h1>
     <div class="chat-container">
         <div class="messages" id="messages"></div>
         <form id="messageForm" method="POST">
@@ -30,6 +21,8 @@
                 <option value="facebook/bart-base">BART-Base</option>
                 <option value="facebook/bart-large">BART-Large</option>
                 <option value="gpt2">GPT-2</option>
+                <option value="gpt2-medium">GPT-2-Medium</option>
+                <option value="gpt2-large">GPT-2-Large</option>
             </select>
             <button type="submit">Send</button>
             <button type="reset">Reset</button>

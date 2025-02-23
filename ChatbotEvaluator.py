@@ -97,7 +97,11 @@ class ChatbotEvaluator:
             'rouge1_f1': rouge_scores['rouge1'].fmeasure,
             'rouge2_f1': rouge_scores['rouge2'].fmeasure,
             'rougeL_f1': rouge_scores['rougeL'].fmeasure,
-            'bert_score_f1': F1.item(),
+            'bert_scores': {
+                'Precision': P.item(),
+                'Recall': R.item(),
+                'F1': F1.item()
+            },
             'bleu_score': bleu_score
         }
     

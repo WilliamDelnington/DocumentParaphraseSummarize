@@ -73,5 +73,163 @@
         "responses": [
             "Sure, Here's the document: "
         ]
+    },
+    {
+        "intent": {
+            "tags": "compliment",
+            "patterns": [
+                "(?i)you\\slook\\sgood[.?!]*$",
+                "(?i)you're\\sawesome[.?!]*$",
+                "(?i)you're\\sgreat[.?!]*$",
+                "(?i)good\\sjob[.?!]*$",
+                "(?i)well\\sdone[.?!]*$"
+            ]
+        },
+        "responses": [
+            "Thank you! You're too kind!",
+            "I appreciate that! You're awesome too!",
+            "You're making me blush! Thanks!",
+            "Glad to hear that! Thanks a lot!"
+        ]
+    },
+    {
+        "intent": {
+            "tags": "feedback",
+            "patterns": [
+                "(?i)how\\sdo\\si\\shelp[.?!]*$",
+                "(?i)do\\syou\\slike\\smy\\sfeedback[.?!]*$",
+                "(?i)what\\ssuggest\\syou\\sbased\\son\\smy\\sfeedback[.?!]*$"
+            ]
+        },
+        "responses": [
+            "I'm always looking to improve! Thanks for the feedback!",
+            "Your feedback is valuable! I will use it to assist you better.",
+            "Feel free to share any suggestions, I'm happy to learn!",
+            "Thanks! I appreciate any feedback you have."
+        ]
+    },
+    {
+        "intent": {
+            "tags": "thankful",
+            "patterns": [
+                "(?i)thanks\\sa\\slot[.?!]*$",
+                "(?i)thank\\syou\\sso\\smuch[.?!]*$",
+                "(?i)i'm\\sgrateful[.?!]*$",
+                "(?i)really\\sthank\\syou[.?!]*$"
+            ]
+        },
+        "responses": [
+            "You're very welcome!",
+            "It was my pleasure!",
+            "I'm happy to help!",
+            "Anytime! I'm glad I could assist."
+        ]
+    },
+    {
+        "intent": {
+            "tags": "recommendation",
+            "patterns": [
+                "(?i)can\\syou\\srecommend\\s[.?!]*$",
+                "(?i)suggest\\ssomething\\sfor\\sme[.?!]*$",
+                "(?i)any\\srecommendations[.?!]*$"
+            ]
+        },
+        "responses": [
+            "Sure! What are you looking for specifically?",
+            "I can suggest something. What interests you?",
+            "I'd be happy to recommend something. Could you tell me your preferences?"
+        ]
+    },
+    {
+        "intent": {
+            "tags": "motivation",
+            "patterns": [
+                "(?i)give\\sme\\sa\\smotivational\\squote[.?!]*$",
+                "(?i)motivate\\sme[.?!]*$",
+                "(?i)can\\syou\\sencourage\\sme[.?!]*$"
+            ]
+        },
+        "responses": [
+            "The only limit to our realization of tomorrow is our doubts of today. - Franklin D. Roosevelt",
+            "Believe you can and you're halfway there. - Theodore Roosevelt",
+            "You are stronger than you think!"
+        ]
+    },
+    {
+        "intent": {
+            "tags": "time",
+            "patterns": [
+                "(?i)what\\stime\\sis\\sit[?!.]*$",
+                "(?i)can\\syou\\stell\\sme\\sthe\\stime[?!.]*$",
+                "(?i)\\bwhat('s|\\sis)\\sthe\\stime\\sshowing[?!.]*$\\b"
+            ]
+        },
+        "responses": [
+            "I'm not able to provide real-time data. Please check the clock on your device.",
+            "I don't know the exact time, but your device should tell you!",
+            "Try looking at the clock on your device for the time!"
+        ]
+    },
+    {
+        "intent": {
+            "tags": "news",
+            "patterns": [
+                "(?i)what's\\snew[?]*$",
+                "(?i)any\\snews[?]*$",
+                "(?i)what\\'s\\sgoing\\son[?]*$",
+                "(?i)anything\\'s\\snew[?]*$"
+            ]
+        },
+        "responses": [
+            "I don't have real-time news updates, but you can check a news app or website!",
+            "For the latest news, I recommend checking your favourite news source!",
+            "I'm not able to provide live updates, but you can check online for breaking news!"
+        ]
+    },
+    {
+        "intent": {
+            "tags": "help",
+            "patterns": [
+                "(?i)can\\syou\\shelp\\sme[?]*$",
+                "(?i)help\\sme\\swith\\sthis[?]*$",
+                "(?i)i\\sneed\\shelp[?]*$"
+            ]
+        },
+        "responses": [
+            "Of course! What do you need help with?",
+            "I'm happy to help! Please let me know what you need assistance with.",
+            "Absolutely! How can I assist you?"
+        ]
+    },
+    {
+        "intent": {
+            "tags": "learn",
+            "patterns": [
+                "(?i)i\\swant\\sto\\slearn[.?!]*$",
+                "(?i)teach\\sme\\s[.?!]*$",
+                "(?i)can\\syou\\steach\\sme[.?!]*$"
+            ]
+        },
+        "responses": [
+            "I'd be happy to help! What would you like to learn about?",
+            "Great! What would you like to learn today?",
+            "I'm excited to help you learn! Let me know what you're interested in."
+        ]
+    },
+    {
+        "intent": {
+            "tags": "inspiration",
+            "patterns": [
+                "(?i)i'm\\stired[.?!]*$",
+                "(?i)i'm\\sfeeling\\sdown[.?!]*$",
+                "(?i)i'm\\sfeeling\\sunmotivated[.?!]*$"
+            ]
+        },
+        "responses": [
+            "Keep going! Every step you take brings you closer to your goal.",
+            "Remember, even the smallest progress is progress. You've got this!",
+            "The road might be tough, but you are tougher. Keep pushing forward!"
+        ]
     }
+
 ]
