@@ -6,18 +6,16 @@ This project is a chatbot designed to paraphrase and summarize documents efficie
 
 ## Features
 
-- **Document Summarization**: Extracts key points and produces concise summaries for documents.
+- **Document Summarization**: Extracts key points and produces concise document summaries.
 - **Text Paraphrasing**: Rephrases input text while retaining its original meaning.
 - **Interactive Chatbot**: Engages users through a conversational interface.
 - **Customizable NLP Models**: Supports T5-based transformers or other fine-tuned models for text generation.
-- **Multi-Language Support**: Capable of working with texts in multiple languages.
 
 ## Technologies Used
 
 - **Python**: Core programming language for implementation.
 - **Hugging Face Transformers**: For pre-trained language models (e.g., T5).
-- **Flask/Django**: Backend framework for deploying the chatbot.
-- **Google Colab/Jupyter Notebook**: For experimentation and training.
+- **Flask**: Backend framework for deploying the chatbot.
 - **NLTK**: For tokenization and sentiment analysis.
 - **ROUGE Metrics**: To evaluate the summarization quality.
 - **Docker**: For containerizing the application.
@@ -27,7 +25,7 @@ This project is a chatbot designed to paraphrase and summarize documents efficie
 1. Clone the repository:
    ```bash
    git clone https://github.com/WilliamDelnington/DocumentParaphraseSummarize.git
-   cd document-chatbot
+   cd DocumentParaphraseSummarize
    ```
 2. Set up a virtual environment:
    ```bash
@@ -77,15 +75,25 @@ This project is a chatbot designed to paraphrase and summarize documents efficie
    - Collect and preprocess documents for summarization and paraphrasing.
    - Split data into training, validation, and test sets.
 
-2. **Fine-tune T5**: Use Hugging Face's `Trainer` API to fine-tune the T5 model for summarization and paraphrasing tasks.
+2. **Fine-tune T5**: Use Hugging Face's `Trainer` API to fine-tune the T5 (or BART, GPT2) model for summarization and paraphrasing tasks.
 
    ```python
-   from transformers import T5Tokenizer, T5ForConditionalGeneration, Trainer, TrainingArguments
+   from transformers import T5Tokenizer, T5ForConditionalGeneration, Trainer, TrainingArguments, BartTokenizer, BartForConditionalGeneration, AutoTokenizer, AutoModelForCausalLM
 
    # Load pre-trained T5 model and tokenizer
    model_name = "t5-small" # Use any related t5 models.
-   model = T5ForConditionalGeneration.from_pretrained("t5-small")
-   tokenizer = T5Tokenizer.from_pretrained("t5-small")
+   model = T5ForConditionalGeneration.from_pretrained(model_name)
+   tokenizer = T5Tokenizer.from_pretrained(model_name)
+
+   # Load pre-trained BART model and tokenizer
+   model_name = "bart-base" # Use any related BART models.
+   model = BartForConditionalGeneration.from_pretrained(model_name)
+   tokenizer = BartTokenizer.from_pretrained(model_name)
+
+   # Load pre-trained GPT2 model and tokenizer
+   model_name = "gpt2" # Use any related t5 models.
+   model = AutoModelForCausalLM.from_pretrained(model_name)
+   tokenizer = AutoTokenizer.from_pretrained(model_name)
 
    # Fine-tuning code goes here...
    ```
@@ -112,10 +120,6 @@ This project is a chatbot designed to paraphrase and summarize documents efficie
 - Optimize model for faster inference.
 - Add user authentication and history tracking.
 
-## License
-
-This project is licensed under the MIT License. See `LICENSE` for details.
-
 ## Contributors
 
 - [Nguyen Vu Gia Huy - BA12-088](https://github.com/WilliamDelnington) (Group Leader)
@@ -125,9 +129,9 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## Acknowledgments
 
-- Hugging Face for pre-trained T5 models.
-- NLTK and ROUGE for NLP tools.
-- Flask/Django for backend support.
+- Hugging Face for pre-trained T5, BART and GPT2 models.
+- NLTK, ROUGE, BERT and BLEU for NLP tools.
+- Flask for backend support.
 
 ---
 
