@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a chatbot designed to paraphrase and summarize documents efficiently. It utilizes the T5 Transformer model and supports fundamental conversation handling for better user interaction.
+This project is a chatbot designed to paraphrase and summarize documents efficiently. It utilizes the T5, BART, and GPT2 Transformer models and supports fundamental conversation handling for better user interaction.
 
 ## Features
 
