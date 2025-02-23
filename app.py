@@ -1,14 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, session
 from flask_socketio import SocketIO, send
 from werkzeug.utils import secure_filename
-from ModelAnalyzing import read_and_analyze
+from manager.ModelAnalyzing import read_and_analyze
 import json
 import os
 import re
 import random
 import tempfile
 import traceback
-import HandleTemporaryFiles
+import manager.HandleTemporaryFiles as HandleTemporaryFiles
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SESSION_SECRET_KEY")
@@ -153,6 +153,7 @@ def chat():
                 })
                 return jsonify({"response": f"{default_yes_response['paraphrase']}\n{answer_text}"})
             
+            # If no tasks specified, return the whole document.
             else:
                 answer_text = text
             
@@ -161,6 +162,7 @@ def chat():
         else:
             return jsonify({"response": default_no_response}), 201
     else:
+        # If a task is not defined, consider that the user wants to have a normal conversation.
         for data in dataset:
             try:
                 if any(
@@ -174,5 +176,6 @@ def chat():
                 raise Exception("Error detected")
         return jsonify({"response": f"{default_no_response}"}), 201
 
+# Running program
 if __name__ == "__main__":
     app.run(debug=True)
